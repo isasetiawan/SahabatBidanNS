@@ -10,3 +10,11 @@ of writing your own CSS rules. For a full list of class names in the theme
 refer to http://docs.nativescript.org/ui/theme.
 */
 @import 'nativescript-theme-core/css/aqua.css';
+
+Page {
+    background-color: white;
+}
+TextField {
+    padding: 10;
+    font-size: 18;
+}

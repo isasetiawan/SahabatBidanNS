@@ -5,6 +5,8 @@ import { AppComponent } from "./app.component";
 
 import { ItemService } from "./item/item.service";
 import { LoginComponent } from "./pages/login/login.component"
+import {NativeScriptHttpModule} from "nativescript-angular/http";
+import {NativeScriptFormsModule} from "nativescript-angular";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -14,11 +16,14 @@ import { LoginComponent } from "./pages/login/login.component"
 
 @NgModule({
     bootstrap: [
-        AppComponent
+        AppComponent,
     ],
     imports: [
         NativeScriptModule,
-        AppRoutingModule
+        AppRoutingModule,
+        NativeScriptHttpModule,
+        NativeScriptFormsModule,
+
     ],
     declarations: [
         AppComponent,

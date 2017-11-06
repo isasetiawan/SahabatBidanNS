@@ -6,7 +6,10 @@ C:\Users\azaqo\NatScrProjects\SahabatBidan\platforms\android\src\main\assets\app
 C:\Users\azaqo\NatScrProjects\SahabatBidan\platforms\android\src\main\assets\app\item\item.js
 C:\Users\azaqo\NatScrProjects\SahabatBidan\platforms\android\src\main\assets\app\item\item.service.js
 C:\Users\azaqo\NatScrProjects\SahabatBidan\platforms\android\src\main\assets\app\item\items.component.js
-C:\Users\azaqo\NatScrProjects\SahabatBidan\platforms\android\src\main\assets\app\login\login.component.js
+C:\Users\azaqo\NatScrProjects\SahabatBidan\platforms\android\src\main\assets\app\pages\login\login.component.js
+C:\Users\azaqo\NatScrProjects\SahabatBidan\platforms\android\src\main\assets\app\shared\config.js
+C:\Users\azaqo\NatScrProjects\SahabatBidan\platforms\android\src\main\assets\app\shared\login\user.js
+C:\Users\azaqo\NatScrProjects\SahabatBidan\platforms\android\src\main\assets\app\shared\login\user.service.js
 C:\Users\azaqo\NatScrProjects\SahabatBidan\platforms\android\src\main\assets\app\tns_modules\nativescript-angular\animations.js
 C:\Users\azaqo\NatScrProjects\SahabatBidan\platforms\android\src\main\assets\app\tns_modules\nativescript-angular\collection-facade.js
 C:\Users\azaqo\NatScrProjects\SahabatBidan\platforms\android\src\main\assets\app\tns_modules\nativescript-angular\common.js
@@ -221,3 +224,5 @@ C:\Users\azaqo\NatScrProjects\SahabatBidan\platforms\android\src\main\assets\app
 C:\Users\azaqo\NatScrProjects\SahabatBidan\platforms\android\src\main\assets\app\tns_modules\tns-core-modules\utils\utils.js
 C:\Users\azaqo\NatScrProjects\SahabatBidan\platforms\android\src\main\assets\app\tns_modules\tns-core-modules\xhr\xhr.js
 C:\Users\azaqo\NatScrProjects\SahabatBidan\platforms\android\src\main\assets\app\tns_modules\tns-core-modules\xml\xml.js
+C:\Users\azaqo\NatScrProjects\SahabatBidan\platforms\android\src\main\assets\app\utils\hint-util.js
+C:\Users\azaqo\NatScrProjects\SahabatBidan\platforms\android\src\main\assets\app\utils\status-bar-util.js
