@@ -1,0 +1,18 @@
+ActionBar {
+    border-width: 1;
+    border-color: transparent;
+    background-color: #30bcff;
+}
+
+.wrapper{
+    padding: 16;
+    border-bottom-width: 1;
+    border-bottom-color:#E0E0E0;
+}
+
+.icon{
+    width: 50;
+    height: 50;
+    margin-right: 16;
+}
+

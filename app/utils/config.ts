@@ -1,5 +1,8 @@
 import { Http, Headers} from "@angular/http";
 import { Observable } from "rxjs/Rx";
+import * as Toast from "nativescript-toast"
+
+let appSettings = require("application-settings");
 
 
 export class Config {
@@ -7,7 +10,7 @@ export class Config {
     static keyAPI = "fEZYTJ8L2K8y94fmJ8c94stx6plDmL62";
 
     static getHeaders():Headers{
-        let saved_token = localStorage.getItem("token");
+        let saved_token = appSettings.getString("token");
         let headers = new Headers();
         headers.append("Secret", this.keyAPI);
         headers.append("Authorization", "Bearer "+saved_token);
@@ -15,8 +18,10 @@ export class Config {
         return headers;
     }
 
+
     static handleErrors(error:Response){
         console.log(JSON.stringify(error.json()));
         return Observable.throw(error)
     }
+
 }

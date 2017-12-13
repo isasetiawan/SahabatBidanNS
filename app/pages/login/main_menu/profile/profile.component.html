@@ -1,0 +1,84 @@
+<Page>
+    <ActionBar title="Profil Bidan">
+    </ActionBar>
+
+    <ScrollView>
+        <StackLayout padding="16dp">
+
+            <RadDataForm [source]="bidan" >
+
+                <!--Hidden Field-->
+                <TKEntityProperty tkDataFormProperty name="id" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="disclaimer" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="log" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="provinsi_id" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="kecamatan_id" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="kabupaten_id" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="puskesmas_id" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="kelurahan_id" hidden="true"></TKEntityProperty>
+
+
+
+                <TKEntityProperty tkDataFormProperty name="birthdate" displayName="Tanggal Lahir">
+                    <TKPropertyEditor tkEntityPropertyEditor type="DatePicker"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="nomor_induk_bidan" displayName="Nomor Induk Bidan"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="lokasi_kerja" displayName="Lokasi Kerja"></TKEntityProperty>
+
+            </RadDataForm>
+
+            <Label marginLeft="16dp" marginRight="16dp" text="Provinsi"></Label>
+            <TextField marginLeft="10dp" marginRight="10dp" (tap)="askprovince()" [(ngModel)]="selprov" ></TextField>
+
+            <Label marginLeft="16dp" marginRight="16dp" text="Kabupaten/Kota"></Label>
+            <TextField marginLeft="10dp" marginRight="10dp" (tap)="askkabupaten()" [(ngModel)]="selkab" ></TextField>
+
+            <Label marginLeft="16dp" marginRight="16dp" text="Kecamatan"></Label>
+            <TextField marginLeft="10dp" marginRight="10dp" (tap)="askkecamatan()" [(ngModel)]="selkec" ></TextField>
+
+            <Label marginLeft="16dp" marginRight="16dp" text="Puskesmas"></Label>
+            <TextField marginLeft="10dp" marginRight="10dp" (tap)="askpuskesmas()" [(ngModel)]="selpus" ></TextField>
+
+            <Label marginLeft="16dp" marginRight="16dp" text="Kelurahan"></Label>
+            <TextField marginLeft="10dp" marginRight="10dp" (tap)="askkelurahan()" [(ngModel)]="selkelu" ></TextField>
+
+            <!--<TextInputLayout hint="Nama" hintAnimationEnabled="true">-->
+                <!--<TextField [(ngModel)]="bidan.nama" ></TextField>-->
+            <!--</TextInputLayout>-->
+
+            <!--<TextInputLayout hint="Username" hintAnimationEnabled="true">-->
+                <!--<TextField [(ngModel)]="bidan.username" ></TextField>-->
+            <!--</TextInputLayout>-->
+
+            <!--<TextInputLayout hint="E-Mai" hintAnimationEnabled="true">-->
+                <!--<TextField [(ngModel)]="bidan.email" keyboardType="email" ></TextField>-->
+            <!--</TextInputLayout>-->
+
+            <!--<Label text="Tanggal Lahir"></Label>-->
+            <!--<DatePicker [(ngModel)]="bidan.birthdate" ></DatePicker>-->
+
+            <!--<TextInputLayout hint="Agama" hintAnimationEnabled="true">-->
+                <!--<TextField [(ngModel)]="bidan.agama" ></TextField>-->
+            <!--</TextInputLayout>-->
+
+            <!--<TextInputLayout hint="Alamat Tinggal" hintAnimationEnabled="true">-->
+                <!--<TextField [(ngModel)]="bidan.alamat"></TextField>-->
+            <!--</TextInputLayout>-->
+
+            <!--<TextInputLayout hint="Nomor Induk Bidan" hintAnimationEnabled="true">-->
+                <!--<TextField [(ngModel)]="bidan.nomor_induk_bidan"></TextField>-->
+            <!--</TextInputLayout>-->
+
+            <!--<TextInputLayout hint="Lokasi Kerja" hintAnimationEnabled="true">-->
+                <!--<TextField [(ngModel)]="bidan.lokasi_kerja" ></TextField>-->
+            <!--</TextInputLayout>-->
+
+
+            <Button text="Submit" (tap)="editprofile()"></Button>
+
+        </StackLayout>
+
+    </ScrollView>
+
+</Page>

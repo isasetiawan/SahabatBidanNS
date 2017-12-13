@@ -1,0 +1,54 @@
+<Page>
+    <ActionBar title="Tindakan"></ActionBar>
+    <ScrollView>
+        <StackLayout margin="16">
+
+            <RadDataForm [source]="tindakan">
+                <TKEntityProperty tkDataFormProperty name="id" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="pemeriksaan_id" hidden="true"></TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="imunisasi_tt1" displayName="Imunisasi TT1" [valuesProvider]="yatak">
+                    <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="imunisasi_tt2" displayName="Imunisasi TT2" [valuesProvider]="yatak">
+                    <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="imunisasi_tt3" displayName="Imunisasi TT3" [valuesProvider]="yatak">
+                    <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                </TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="imunisasi_tt4" displayName="Imunisasi TT4" [valuesProvider]="yatak">
+                    <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="imunisasi_tt5" displayName="Imunisasi TT5" [valuesProvider]="yatak">
+                    <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="jumlah_pemberian_tablet_fe" displayName="Jumlah Pemberian Tablet FE">
+                    <TKPropertyEditor tkEntityPropertyEditor type="Numeric"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="kapsul_iodium" displayName="Jumlah Pemberian Kapsul Iodium">
+                    <TKPropertyEditor tkEntityPropertyEditor type="Numeric"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="tindakan_lain" displayName="Tindakan Lain" >
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="saran" displayName="Saran" >
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="berkunjung_lagi_pada" displayName="Berkunjung lagi pada">
+                    <TKPropertyEditor tkEntityPropertyEditor type="DatePicker"></TKPropertyEditor>
+                </TKEntityProperty>
+
+            </RadDataForm>
+
+            <Button (tap)="saveTindakan()" text="Simpan"></Button>
+        </StackLayout>
+    </ScrollView>
+
+</Page>
+

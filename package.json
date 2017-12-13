@@ -4,7 +4,7 @@
 	"readme": "NativeScript Application",
 	"repository": "<fill-your-repository-here>",
 	"nativescript": {
-		"id": "org.nativescript.SahabatBidan",
+		"id": "com.sahabatt.sahabatbidan",
 		"tns-android": {
 			"version": "3.2.0"
 		}
@@ -18,11 +18,17 @@
 		"@angular/http": "~4.2.0",
 		"@angular/platform-browser": "~4.2.0",
 		"@angular/router": "~4.2.0",
+		"moment": "^2.19.2",
 		"nativescript-angular": "~4.2.0",
+		"nativescript-cardview": "^2.0.4",
+		"nativescript-floatingactionbutton": "^4.1.2",
+		"nativescript-pro-ui": "^3.2.0",
+		"nativescript-textinputlayout": "^2.0.1",
 		"nativescript-theme-core": "~1.0.2",
+		"nativescript-toast": "^1.4.6",
 		"reflect-metadata": "~0.1.8",
 		"rxjs": "~5.4.2",
-		"tns-core-modules": "~3.1.0",
+		"tns-core-modules": "^3.3.0",
 		"zone.js": "~0.8.2"
 	},
 	"devDependencies": {

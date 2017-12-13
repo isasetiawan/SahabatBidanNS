@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Http} from "@angular/http";
+import {Http, Headers} from "@angular/http";
 import {Config} from "../../utils/config";
 
 @Injectable()
@@ -8,14 +8,16 @@ export class BidanService {
     constructor(private http:Http){}
 
     login(user){
+        let headers = new Headers();
+        headers.append("Secret","fEZYTJ8L2K8y94fmJ8c94stx6plDmL62");
         return this.http.post(
             Config.urlAPI + "/login",
-            JSON.stringify(user),
-            {headers:Config.getHeaders()}
+            user,
+            {headers:headers}
         )
             .map(response => response.json())
-            .do(data=>{
-                console.log(data.Result)
+            .do(data => {
+                console.log("balasan"+JSON.stringify(data))
             })
             .catch(Config.handleErrors)
     }
@@ -31,8 +33,8 @@ export class BidanService {
 
     updateProfile(profile){
         return this.http.put(
-            Config.urlAPI+"/profile",
-            JSON.stringify(profile),
+            Config.urlAPI+"/bidan/profile",
+            profile,
             {headers:Config.getHeaders()}
         )   .map(res => res.json())
             .catch(Config.handleErrors)
@@ -66,27 +68,36 @@ export class BidanService {
             .catch(Config.handleErrors)
     }
 
-    kabupaten(){
+    kabupaten(id:number){
         return this.http.get(
-            Config.urlAPI+"/kabupaten",
+            Config.urlAPI+"/kabupaten/"+id,
             {headers:Config.getHeaders()}
         )
             .map(res => res.json())
             .catch(Config.handleErrors)
     }
 
-    kecamatan(){
+    kecamatan(id){
         return this.http.get(
-            Config.urlAPI+"/kecamatan",
+            Config.urlAPI+"/kecamatan/"+id,
             {headers:Config.getHeaders()}
         )
             .map(res => res.json())
             .catch(Config.handleErrors)
     }
 
-    puskesmas(){
+    puskesmas(id){
         return this.http.get(
-            Config.urlAPI+"/puskesmas",
+            Config.urlAPI+"/puskesmas/"+id,
+            {headers:Config.getHeaders()}
+        )
+            .map(res => res.json())
+            .catch(Config.handleErrors)
+    }
+
+    kelurahan(id){
+        return this.http.get(
+            Config.urlAPI+"/kelurahan/"+id,
             {headers:Config.getHeaders()}
         )
             .map(res => res.json())

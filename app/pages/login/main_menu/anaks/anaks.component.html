@@ -1,0 +1,74 @@
+<Page>
+    <ActionBar [title]="orangtua.ibu_nama">
+    </ActionBar>
+
+
+    <TabView>
+
+        <StackLayout padding="16dp" *tabItem="{title: 'Profil'}">
+
+            <!--<Image marginBottom="16dp" width="20%" src="res://parent"></Image>-->
+
+            <RadDataForm isReadOnly="true" [source]="orangtua">
+
+                <TKEntityProperty tkDataFormProperty name="id" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="disclaimer" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="log" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="provinsi_id" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="kecamatan_id" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="kabupaten_id" hidden="true"></TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="ibu_nama" displayName="Nama Ibu">
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="ibu_birthdate" displayName="Tanggal Lahir Ibu">
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="ibu_alamat" displayName="Alamat Ibu">
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="ibu_agama" displayName="Agama Ibu">
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="ayah_nama" displayName="Nama Ayah">
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="ayah_birthdate" displayName="Tanggal Lahir Ayah">
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="ayah_alamat" displayName="Alamat Ayah">
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="ayah_agama" displayName="Agama Ayah">
+                </TKEntityProperty>
+
+            </RadDataForm>
+
+        </StackLayout>
+
+        <StackLayout *tabItem="{title: 'Anak-anak'}">
+
+            <RadListView
+                    [items]="anaks"
+                    pullToRefresh="true"
+                    (pullToRefreshInitiated)="loadChildern($event)"
+                    selectedBehavior="Press"
+            >
+                <ng-template tkListItemTemplate let-item="item">
+                    <CardView class="card-list" margin="8" radius="8">
+                        <StackLayout class="wrapper" orientation="horizontal">
+                            <Image class="icon" [src]='item.gender=="L" ? "res://boy" : "res://girl"'></Image>
+                            <StackLayout orientaion="vertical" >
+                                <Label class="title" [text]="item.nama"></Label>
+                                <Label class="desc" [text]="item.birthdate"></Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </CardView>
+                </ng-template>
+            </RadListView>
+
+        </StackLayout>
+
+    </TabView>
+
+</Page>

@@ -1,0 +1,37 @@
+<ScrollView padding="16dp">
+
+    <StackLayout>
+        <RadDataForm [source]="rencana" >
+            <TKEntityProperty tkDataFormProperty name="id" hidden="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="kehamilan_id" hidden="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="bidan_id" hidden="true"></TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="tanggal" displayName="Tanggal">
+                <TKPropertyEditor tkEntityPropertyEditor type="DatePicker"></TKPropertyEditor>
+            </TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="penolong" displayName="Penolong Persalinan" [valuesProvider]="penolongs">
+                <TKPropertyEditor tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
+            </TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="tempat" displayName="Tempat" [valuesProvider]="tempats">
+                <TKPropertyEditor tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
+            </TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="pendamping" displayName="Pendamping" [valuesProvider]="pendampings">
+                <TKPropertyEditor tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
+            </TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="transportasi" displayName="Transportasi" [valuesProvider]="transportasies">
+                <TKPropertyEditor tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
+            </TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="pendonor" displayName="Pendonor" [valuesProvider]="pendonors">
+                <TKPropertyEditor tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
+            </TKEntityProperty>
+
+        </RadDataForm>
+        <Button  text="Tambahkan" (tap) = "submit()"> </Button>
+    </StackLayout>
+
+</ScrollView>

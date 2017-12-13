@@ -1,0 +1,22 @@
+<StackLayout padding="16dp">
+
+    <!-- <Label textWrap="true" marginBottom="16dp" text="Serahkan Hanphone kepada ibu ybs. dan mintalah untuk memasukkan kata sandi dan password"></Label> -->
+
+    <RadDataForm [source]="args">
+        
+        <TKEntityProperty tkDataFormProperty name="HPHT" displayName="Hari Pertama Haid Terahir">
+            <TKPropertyEditor tkEntityPropertyEditor type="DatePicker"></TKPropertyEditor>
+        </TKEntityProperty>
+        
+        <TKEntityProperty tkDataFormProperty name="is_dropout" displayName="Dropout" index="0" [valuesProvider]="dropoutChoice">
+            <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+        </TKEntityProperty>
+
+    </RadDataForm>
+
+    <Label [text]="err_message"></Label>
+    
+    <Button (tap)="submit()" text="Tambahkan"> </Button>
+
+</StackLayout>
+        

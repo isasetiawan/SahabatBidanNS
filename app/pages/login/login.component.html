@@ -1,10 +1,16 @@
 <StackLayout class="page">
     <Image src="res://logo" stretch="aspectFit" height="300dp" horizontalAlignment="center"></Image>
-    
-    <TextField [(ngModel)]="user.username" hint="Nama Pengguna" autocapitalizationType="none"></TextField>
-    <TextField [(ngModel)]="user.password" hint="Kata Sandi" secure="true"></TextField>
+
+    <TextInputLayout hint="Nama Pengguna" hintAnimationEnabled="true">
+        <TextField [(ngModel)]="user.username" autocapitalizationType="none"></TextField>
+    </TextInputLayout>
+
+    <TextInputLayout hint="Kata Sandi" hintAnimationEnabled="true">
+        <TextField [(ngModel)]="user.password" secure="true"></TextField>
+    </TextInputLayout>
+
 
     <Button (tap)="login()" text="Masuk"> </Button>
-    <Label textAlignment="center" text="Lupa Kata Sandi"></Label>
+    <Label (tap)="navigatemenu()" textAlignment="center" text="Lupa Kata Sandi"></Label>
     
 </StackLayout>

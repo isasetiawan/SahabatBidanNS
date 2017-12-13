@@ -1,0 +1,15 @@
+<StackLayout padding="16dp">
+
+    <Label textWrap="true" marginBottom="16dp" text="Serahkan Hanphone kepada ibu ybs. dan mintalah untuk memasukkan kata sandi dan password"></Label>
+
+    <TextInputLayout width="100%" hint="Nama Pengguna" hintAnimationEnabled="true">
+        <TextField [(ngModel)]="args.username" autocapitalizationType="none"></TextField>
+    </TextInputLayout>
+
+    <TextInputLayout width="100%" hint="Kata Sandi" hintAnimationEnabled="true">
+        <TextField [(ngModel)]="args.password" secure="true"></TextField>
+    </TextInputLayout>
+
+    <Button (tap)="submit()" text="Tambahkan"> </Button>
+
+</StackLayout>

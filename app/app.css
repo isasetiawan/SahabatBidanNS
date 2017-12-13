@@ -9,12 +9,43 @@ In many cases you may want to use the NativeScript core theme instead
 of writing your own CSS rules. For a full list of class names in the theme
 refer to http://docs.nativescript.org/ui/theme.
 */
-@import 'nativescript-theme-core/css/aqua.css';
+@import "~/nativescript-theme-core/css/sky.css";
 
-Page {
-    background-color: white;
+ActionBar{
+    color: white;
 }
-TextField {
-    padding: 10;
-    font-size: 18;
+
+TabView {
+    tab-text-color: #FFF;
+    selected-tab-text-color: #FFFFFF;
+    android-selected-tab-text-color: #FFFFFF;
+}
+
+Page{
+    background-color: #eeeeee;
+}
+
+.fab-button {
+    height: 64;
+    width: 64;
+    margin: 15;
+    background-color: #f48fb1;
+    horizontal-align: right;
+    vertical-align: bottom;
+}
+
+.title{
+    font-size: 18pt;
+    color: #333333;
+}
+
+.desc{
+    font-size: 14pt;
+}
+
+.card-list{
+    margin-top: 12dp;
+    margin-bottom: 4dp;
+    margin-left: 16dp;
+    margin-right: 16dp;
 }

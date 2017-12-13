@@ -10,8 +10,8 @@
         <item name="colorAccent">@color/ns_accent</item>
 
         <item name="android:windowBackground">@drawable/splash_screen</item>
-        
-        <item name="android:windowActionBarOverlay">true</item>  
+
+        <item name="android:windowActionBarOverlay">true</item>
         <item name="android:windowTranslucentStatus">true</item>
 
     </style>
@@ -42,4 +42,9 @@
 
     <style name="NativeScriptToolbarStyle" parent="NativeScriptToolbarStyleBase">
     </style>
-</resources> 
+
+    <style name="SpecialTextInputLayout" parent="@android:style/TextAppearance">
+        <item name="android:textColor">#f48fb1</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+</resources>

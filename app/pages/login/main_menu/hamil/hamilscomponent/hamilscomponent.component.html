@@ -1,0 +1,189 @@
+<Page>
+    <ActionBar [title]="orangtua.ibu_nama" ></ActionBar>
+</Page>
+
+<TabView>
+
+    <StackLayout padding="16dp" *tabItem="{title: 'Profil'}">
+        
+        <!--<Image marginBottom="16dp" width="20%" src="res://parent"></Image>-->
+
+        <RadDataForm isReadOnly="true" [source]="orangtua">
+
+            <TKEntityProperty tkDataFormProperty name="id" hidden="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="disclaimer" hidden="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="log" hidden="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="provinsi_id" hidden="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="kecamatan_id" hidden="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="kabupaten_id" hidden="true"></TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="ibu_nama" displayName="Nama Ibu">
+            </TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="ibu_birthdate" displayName="Tanggal Lahir Ibu">
+            </TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="ibu_alamat" displayName="Alamat Ibu">
+            </TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="ibu_agama" displayName="Agama Ibu">
+            </TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="ayah_nama" displayName="Nama Ayah">
+            </TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="ayah_birthdate" displayName="Tanggal Lahir Ayah">
+            </TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="ayah_alamat" displayName="Alamat Ayah">
+            </TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="ayah_agama" displayName="Agama Ayah">
+            </TKEntityProperty>
+
+        </RadDataForm>
+
+    </StackLayout>
+
+    <GridLayout row="auto,*" *tabItem="{title: 'Kehamilan'}">
+
+
+        <RadListView
+            [items]="kehamilas"
+            pullToRefresh="true"
+            (pullToRefreshInitiated)="loadpregs($event)"
+            selectedBehavior="Press"
+        >
+
+            <ng-template tkListItemTemplate let-item="item">
+
+                <CardView class="card-list" radius="8">
+                    <GridLayout columns="auto,*,auto,auto,auto" class="wrapper" orientation="horizontal">
+                        <Image col="0" class="icon" src='res://kehamilan'></Image>
+                        <StackLayout col="1" orientaion="vertical" (tap)="on_hamil_selected(item.id)" >
+                            <Label class="title" [text]="'Kehamilan ke-'+item.hamil_ke"></Label>
+                            <Label class="desc" [text]="'HPHT '+item.HPHT"></Label>
+                        </StackLayout>
+                        <Image col="2" class="ic_action" src="res://ic_done_black_24dp" [visibility]='item.is_dropout == 1 ? "visible" : "collapse"'></Image>
+                        <Image col="3" class="ic_action" src="res://ic_mode_edit_black_24dp" (tap)="editHamilModals(item)"></Image>
+                        <Image col="4" class="ic_action" src="res://ic_delete_black_48dp" (tap)="delete_preg(item.id)"></Image>
+                    </GridLayout>
+                </CardView>
+
+            </ng-template>
+
+        </RadListView>
+
+        <FAB:fab (tap)="addHamilModals()" class="fab-button" row="1" rippleColor="#f1f1f1" ></FAB:fab>
+
+    </GridLayout>
+
+    <ScrollView *tabItem="{title: 'Rencana KB'}">
+
+        <StackLayout padding="16" >
+
+            <Label marginBottom="8" class="title" text="Mal"></Label>
+
+            <GridLayout marginTop="4" marginBottom="4" verticalAlignment="center" columns="*,auto" >
+                <Label col="0" text="Perencanaan"></Label>
+                <Switch col="1" [(ngModel)]="kabes.mal.rencana" ></Switch>
+            </GridLayout>
+
+            <GridLayout marginTop="4" marginBottom="4" verticalAlignment="center" columns="*,auto" >
+                <Label col="0" text="Pelaksanaan"></Label>
+                <Switch col="1" [(ngModel)]="kabes.mal.laksana" ></Switch>
+            </GridLayout>
+
+            <Label marginBottom="8" marginTop="16" class="title" text="Kondom"></Label>
+
+            <GridLayout marginTop="4" marginBottom="4" verticalAlignment="center" columns="*,auto" >
+                <Label col="0" text="Perencanaan"></Label>
+                <Switch col="1" [(ngModel)]="kabes.kondom.rencana" ></Switch>
+            </GridLayout>
+
+            <GridLayout marginTop="4" marginBottom="4" verticalAlignment="center" columns="*,auto" >
+                <Label col="0" text="Pelaksanaan"></Label>
+                <Switch col="1" [(ngModel)]="kabes.kondom.laksana" ></Switch>
+            </GridLayout>
+
+            <Label marginBottom="8" marginTop="16" class="title" text="Pil"></Label>
+
+            <GridLayout marginTop="4" marginBottom="4" verticalAlignment="center" columns="*,auto" >
+                <Label col="0" text="Perencanaan"></Label>
+                <Switch col="1" [(ngModel)]="kabes.pil.rencana" ></Switch>
+            </GridLayout>
+
+            <GridLayout marginTop="4" marginBottom="4" verticalAlignment="center" columns="*,auto" >
+                <Label col="0" text="Pelaksanaan"></Label>
+                <Switch col="1" [(ngModel)]="kabes.pil.laksana" ></Switch>
+            </GridLayout>
+
+            <Label marginBottom="8" marginTop="16" class="title" text="Suntik"></Label>
+
+            <GridLayout marginTop="4" marginBottom="4" verticalAlignment="center" columns="*,auto" >
+                <Label col="0" text="Perencanaan"></Label>
+                <Switch col="1" [(ngModel)]="kabes.suntik.rencana" ></Switch>
+            </GridLayout>
+
+            <GridLayout marginTop="4" marginBottom="4" verticalAlignment="center" columns="*,auto" >
+                <Label col="0" text="Pelaksanaan"></Label>
+                <Switch col="1" [(ngModel)]="kabes.suntik.laksana" ></Switch>
+            </GridLayout>
+
+            <Label marginBottom="8" marginTop="16" class="title" text="AKDR"></Label>
+
+            <GridLayout marginTop="4" marginBottom="4" verticalAlignment="center" columns="*,auto" >
+                <Label col="0" text="Perencanaan"></Label>
+                <Switch col="1" [(ngModel)]="kabes.akdr.rencana" ></Switch>
+            </GridLayout>
+
+            <GridLayout marginTop="4" marginBottom="4" verticalAlignment="center" columns="*,auto" >
+                <Label col="0" text="Pelaksanaan"></Label>
+                <Switch col="1" [(ngModel)]="kabes.akdr.laksana"  ></Switch>
+            </GridLayout>
+
+            <Label marginBottom="8" marginTop="16" class="title" text="Implant"></Label>
+
+            <GridLayout marginTop="4" marginBottom="4" verticalAlignment="center" columns="*,auto" >
+                <Label col="0" text="Perencanaan" ></Label>
+                <Switch col="1" [(ngModel)]="kabes.inplant.rencana"  ></Switch>
+            </GridLayout>
+
+            <GridLayout marginTop="4" marginBottom="4" verticalAlignment="center" columns="*,auto" >
+                <Label col="0" text="Pelaksanaan"></Label>
+                <Switch col="1" [(ngModel)]="kabes.inplant.laksana" ></Switch>
+            </GridLayout>
+
+            <Label marginBottom="8" marginTop="16" class="title" text="MOW"></Label>
+
+            <GridLayout marginTop="4" marginBottom="4" verticalAlignment="center" columns="*,auto" >
+                <Label col="0" text="Perencanaan"></Label>
+                <Switch col="1" [(ngModel)]="kabes.mow.rencana" ></Switch>
+            </GridLayout>
+
+            <GridLayout marginTop="4" marginBottom="4" verticalAlignment="center" columns="*,auto" >
+                <Label col="0" text="Pelaksanaan"></Label>
+                <Switch col="1" [(ngModel)]="kabes.mow.laksana"  ></Switch>
+            </GridLayout>
+
+            <Label marginBottom="8" marginTop="16" class="title" text="MOP"></Label>
+
+            <GridLayout marginTop="4" marginBottom="4" verticalAlignment="center" columns="*,auto" >
+                <Label col="0" text="Perencanaan"></Label>
+                <Switch col="1" [(ngModel)]="kabes.mop.rencana" ></Switch>
+            </GridLayout>
+
+            <GridLayout marginTop="4" marginBottom="4" verticalAlignment="center" columns="*,auto" >
+                <Label col="0" text="Pelaksanaan"></Label>
+                <Switch col="1" [(ngModel)]="kabes.mop.laksana" ></Switch>
+            </GridLayout>
+
+            <Button text="simpan" (tap)="saveKB()"></Button>
+
+        </StackLayout>
+
+    </ScrollView>
+
+
+</TabView>
+
