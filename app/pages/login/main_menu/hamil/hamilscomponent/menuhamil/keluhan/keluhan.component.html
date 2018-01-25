@@ -1,0 +1,142 @@
+<Page>
+    <ActionBar title="Keluhan">
+    </ActionBar>
+    <ScrollView>
+        <StackLayout padding="16">
+            <RadDataForm [source]="keluhan" >
+                <TKEntityProperty tkDataFormProperty name="id" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="kehamilan_id" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="created_at" hidden="true"></TKEntityProperty>
+
+
+                <!--Trimester pertama-->
+
+                <TKPropertyGroup tkDataFormGroups collapsible="true" name="Trimester 1" hidden="false">
+
+                    <TKEntityProperty tkPropertyGroupProperties name="1_mual_muntah" displayName="Mual Muntah" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="1_susah_bab" displayName="Susah Buang Air Besar" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="1_keputihan" displayName="Keputihan" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="1_pusing" displayName="Pusing" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="1_mudah_lelah" displayName="Mudah Lelah" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="1_panas_dada" displayName="Panas dada" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="1_lainnya" displayName="Lainnya">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                </TKPropertyGroup>
+
+                <!--Trimester kedua-->
+
+                <TKPropertyGroup tkDataFormGroups collapsible="true" name="Trimester 2" hidden="false">
+
+                    <TKEntityProperty tkPropertyGroupProperties name="2_pusing" displayName="Pusing" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="2_nyeri_perut_bawah" displayName="Nyeri Perut Bawah" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="2_nyeri_punggung" displayName="Nyeri Pinggung" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="2_keputihan" displayName="Keputihan" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="2_susah_bab" displayName="Susah Buang Air Besar" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="2_sering_berkemih" displayName="Sering berkemih" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="2_gerak_janin_berkurang" displayName="Gerak Janin Berkurang" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="2_lainnya" displayName="Lainnya">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                </TKPropertyGroup>
+
+                <!--trimester 3-->
+
+                <TKPropertyGroup tkDataFormGroups collapsible="true" name="Trimester 3" hidden="false">
+
+                    <TKEntityProperty tkPropertyGroupProperties name="3_susah_bab" displayName="Susah Buang Air Besar" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="3_keram_kaki" displayName="Keram Kaki" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="3_nyeri_perut_bawah" displayName="Nyeri Perut Bawah" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="3_gerak_janin_berkurang" displayName="Gerak Janin Berkurang" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="3_sering_berkemih" displayName="Sering berkemih" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="3_bengkak_kaki" displayName="Bengkak pada Kaki" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="3_keputihan" displayName="Keputihan" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="3_sulit_tidur" displayName="Sulit Tidur" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="3_sesak_nafas" displayName="Sesak Nafas" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="3_nyeri_punggung" displayName="Nyeri Punggung" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="3_keluar_darah_kemaluan" displayName="Keluar darah dari kemaluan" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="3_lainnya" displayName="Lainnya">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                </TKPropertyGroup>
+
+            </RadDataForm>
+            <Button text="simpan" (tap)="save_r_keluhan()"></Button>
+        </StackLayout>
+    </ScrollView>
+</Page>

@@ -2,7 +2,7 @@ import {Component} from "@angular/core";
 import {ModalDialogParams} from "nativescript-angular";
 import {OrangtuaService} from "../orangtua.service";
 import * as Toast from "nativescript-toast"
-import {Ibuhamilservice} from "../anaks/ibuhamilservice";
+import {Ibuhamilservice} from "../ibuhamilservice";
 
 @Component({
     selector: "ns-modal-pairing",
@@ -32,9 +32,6 @@ export class PairingModalComponent {
                 res=>{
                     Toast.makeText(res.message).show();
                     this.params.closeCallback();
-                },
-                err => {
-                    Toast.makeText(err.json().message).show();
                 }
             );
         } else {
@@ -42,9 +39,6 @@ export class PairingModalComponent {
                 res=>{
                     Toast.makeText(res.message).show();
                     this.params.closeCallback();
-                },
-                err => {
-                    Toast.makeText(err.json().message).show();
                 }
             );
         }

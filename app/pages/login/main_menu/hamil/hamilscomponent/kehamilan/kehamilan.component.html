@@ -4,9 +4,9 @@
 
 <TabView>
 
-    <ScrollView padding="8" *tabItem="{title: 'R. Kehamilan'}">
+    <ScrollView *tabItem="{title: 'R. Kehamilan'}">
 
-        <StackLayout>
+        <StackLayout padding="16">
             <RadDataForm [source]="riwayat" >
                 <TKEntityProperty tkDataFormProperty name="id" hidden="true"></TKEntityProperty>
                 <TKEntityProperty tkDataFormProperty name="kehamilan_id" hidden="true"></TKEntityProperty>
@@ -19,31 +19,38 @@
 
 
                 <TKEntityProperty tkDataFormProperty name="n_melahirkan" displayName="Jumlah melahirkan">
-                    <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                    <TKNonEmptyValidator tkEntityPropertyValidators  errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
                 </TKEntityProperty>
 
                 <TKEntityProperty tkDataFormProperty name="jumlah_abortus" displayName="Jumlah abortus">
                     <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
                 </TKEntityProperty>
 
                 <TKEntityProperty tkDataFormProperty name="jarak_hamil" displayName="Jarak hamil">
                     <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
                 </TKEntityProperty>
 
                 <TKEntityProperty tkDataFormProperty name="normal_anak_ke" displayName="Melahirkan normal pada anak ke-">
                     <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
                 </TKEntityProperty>
 
                 <TKEntityProperty tkDataFormProperty name="sesar_anak_ke" displayName="Melahirkan sesar pada anak ke-">
                     <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
                 </TKEntityProperty>
 
                 <TKEntityProperty tkDataFormProperty name="vakum_anak_ke" displayName="Melahirkan vakum pada anak ke-">
                     <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
                 </TKEntityProperty>
 
                 <TKEntityProperty tkDataFormProperty name="prematur_anak_ke" displayName="Melahirkan prematur pada anak ke-">
                     <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
                 </TKEntityProperty>
 
                 <TKPropertyGroup tkDataFormGroups collapsible="true" name="Penolong Persalinan" hidden="false">
@@ -63,14 +70,17 @@
 
                 <TKEntityProperty tkDataFormProperty name="berat_anak_2_less" displayName="Berat badan anak kurang dari 2 Kg pada anak ke-">
                     <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
                 </TKEntityProperty>
 
                 <TKEntityProperty tkDataFormProperty name="berat_anak_2_to_3_on" displayName="Berat badan anak diantara 2 - 3 Kg pada anak ke-">
                     <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
                 </TKEntityProperty>
 
                 <TKEntityProperty tkDataFormProperty name="berat_anak_4_more" displayName="Berat badan anak lebihi dari 4 Kg pada anak ke-">
                     <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
                 </TKEntityProperty>
 
             </RadDataForm>
@@ -81,7 +91,7 @@
 
     <ScrollView row="auto,*" *tabItem="{title: 'R. Kesehatan'}">
 
-        <StackLayout>
+        <StackLayout padding="16"> 
             <RadDataForm [source]="kesehatan">
                 <TKEntityProperty tkDataFormProperty name="id" hidden="true"></TKEntityProperty>
                 <TKEntityProperty tkDataFormProperty name="kehamilan_id" hidden="true"></TKEntityProperty>
@@ -186,7 +196,7 @@
 
     <ScrollView *tabItem="{title: 'Keluhan'}">
 
-        <StackLayout>
+        <StackLayout padding="16">
             <RadDataForm [source]="keluhan" >
                 <TKEntityProperty tkDataFormProperty name="id" hidden="true"></TKEntityProperty>
                 <TKEntityProperty tkDataFormProperty name="kehamilan_id" hidden="true"></TKEntityProperty>
@@ -359,8 +369,7 @@
 
     <ScrollView *tabItem="{title: 'Melahirkan'}">
 
-        <StackLayout>
-
+        <StackLayout padding="16">
             <RadDataForm [source]="melahirkan" >
                 <TKEntityProperty tkDataFormProperty name="id" hidden="true"></TKEntityProperty>
                 <TKEntityProperty tkDataFormProperty name="kehamilan_id" hidden="true"></TKEntityProperty>
@@ -389,7 +398,7 @@
                     <TKPropertyEditor tkEntityPropertyEditor type="DatePicker"></TKPropertyEditor>
                 </TKEntityProperty>
 
-                <TKEntityProperty tkDataFormProperty name="jenis_kelamin_bayi" displayName="Jenis Kelamin Bayi" [valuesProvider]="['Laki-laki','Perempuan','Tidak diketahui']">
+                <TKEntityProperty tkDataFormProperty name="jenis_kelamin_bayi" displayName="Jenis Kelamin Bayi" [valuesProvider]="['L','P']">
                     <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
                 </TKEntityProperty>
 
@@ -410,25 +419,140 @@
     </ScrollView>
 
     <ScrollView *tabItem="{title: 'Persalinan'}">
-        <StackLayout>
-            <RadDataForm [source]="persalinan">
-                <TKEntityProperty tkDataFormProperty name="id" hidden="true"></TKEntityProperty>
-                <TKEntityProperty tkDataFormProperty name="kehamilan_id" hidden="true"></TKEntityProperty>
-                <TKEntityProperty tkDataFormProperty name="bidan_id" hidden="true"></TKEntityProperty>
+        <StackLayout padding="16">
 
-                <TKEntityProperty tkDataFormProperty name="tanggal_kala_1" displayName="Tanggal Kala 1">
-                    <TKPropertyEditor tkEntityPropertyEditor type="DatePicker"></TKPropertyEditor>
-                </TKEntityProperty>
+            <Label text="Tanggal kala 1"></Label>
+            <DatePicker [date]='persalinan.tanggal_kala_1' (dateChange)="persalinan.tanggal_kala_1 = moment($event.value).format('YYYY-MM-DD')"></DatePicker>
 
-                <TKEntityProperty tkDataFormProperty name="tanggal_kala_2" displayName="Tanggal Kala 2">
-                    <TKPropertyEditor tkEntityPropertyEditor type="DatePicker"></TKPropertyEditor>
-                </TKEntityProperty>
+            <Label text="Jam kala 1"></Label>
+            <TimePicker [time]='moment((persalinan.jam_kala_1 !== null ? persalinan.jam_kala_1 : "00:00"),"HH:mm").toDate()' (timeChange)="persalinan.jam_kala_1 = moment($event.value).format('HH:mm')"></TimePicker>
 
-                <TKEntityProperty tkDataFormProperty name="tanggal_plasenta_lahir" displayName="Tanggal Kala 2">
-                    <TKPropertyEditor tkEntityPropertyEditor type="DatePicker"></TKPropertyEditor>
-                </TKEntityProperty>
+            <Label text="Tanggal kala 2"></Label>
+            <DatePicker [date]='persalinan.tanggal_kala_2 ? moment(persalinan.tanggal_kala_2).toDate() : moment().toDate()' (dateChange)="persalinan.tanggal_kala_2 = moment($event.value).format('YYYY-MM-DD')"></DatePicker>
 
-            </RadDataForm>
+            <Label text="Jam kala 2"></Label>
+            <TimePicker [time]='moment((persalinan.jam_kala_2 !== null ? persalinan.jam_kala_2 : "00:00"),"HH:mm").toDate()' (timeChange)="persalinan.jam_kala_2 = moment($event.value).format('HH:mm')"></TimePicker>
+
+            <Label text="Tanggal Bayi Lahir"></Label>
+            <DatePicker [date]='persalinan.tanggal_bayi_lahir' (dateChange)="persalinan.tanggal_bayi_lahir = moment($event.value).format('YYYY-MM-DD')"></DatePicker>
+
+            <Label text="Jam Bayi Lahir"></Label>
+            <TimePicker [time]='moment((persalinan.jam_bayi_lahir !== null ? persalinan.jam_bayi_lahir : "00:00"),"HH:mm").toDate()' (timeChange)="persalinan.jam_bayi_lahir = moment($event.value).format('HH:mm')"></TimePicker>
+
+            <Label text="Tanggal Plasenta Lahir"></Label>
+            <DatePicker [date]='persalinan.tanggal_plasenta_lahir' (dateChange)="persalinan.tanggal_plasenta_lahir = moment($event.value).format('YYYY-MM-DD')"></DatePicker>
+
+            <Label text="Jam Plasenta Lahir"></Label>
+            <TimePicker [time]='moment((persalinan.jam_plasenta_lahir !== null ? persalinan.jam_plasenta_lahir : "00:00"),"HH:mm").toDate()' (timeChange)="persalinan.jam_plasenta_lahir = moment($event.value).format('HH:mm')"></TimePicker>
+
+            <TextInputLayout hint="Perdarahan" hintAnimationEnabled="true">
+                <TextField [(ngModel)]="persalinan.perdarahan" ></TextField>
+            </TextInputLayout>
+
+            <TextInputLayout hint="Usia Kehamilan" hintAnimationEnabled="true">
+                <TextField [(ngModel)]="persalinan.usia_kehamilan" ></TextField>
+            </TextInputLayout>
+
+            <TextInputLayout hint="Usia HPHT" hintAnimationEnabled="true">
+                <TextField [(ngModel)]="persalinan.usia_hpht" ></TextField>
+            </TextInputLayout>
+
+            <CheckBox text="Keadaan Ibu Hidup" [(ngModel)]="persalinan.keadaan_ibu"></CheckBox>
+
+            <CheckBox text="Keadaan Bayi Hidup" [(ngModel)]="persalinan.keadaan_bayi"></CheckBox>
+            
+            <TextInputLayout hint="Berat Bayi (Kilogram)" hintAnimationEnabled="true">
+                <TextField [(ngModel)]="persalinan.berat_bayi" ></TextField>
+            </TextInputLayout>
+
+            <Label text="Presentasi Janin"></Label>
+            <DropDown
+                [items]="presentasies"
+                style="font-size: 18pt; margin: 8dp"
+                class="dropdown"
+                [selectedIndex] = "persalinan.presentasi"
+                (selectedIndexChanged)="persalinan.presentasi = $event.newIndex"
+            ></DropDown>
+
+            <Label text="Tempat"></Label>
+            <CheckBox text="Rumah" [(ngModel)]="persalinan.tempat.rumah"></CheckBox>
+            <CheckBox text="Polindes" [(ngModel)]="persalinan.tempat.polindes"></CheckBox>
+            <CheckBox text="Pustu" [(ngModel)]="persalinan.tempat.pustu"></CheckBox>
+            <CheckBox text="Puskesmas" [(ngModel)]="persalinan.tempat.puskesmas"></CheckBox>
+            <CheckBox text="Rumah Bersalin" [(ngModel)]="persalinan.tempat.rumah_bersalin"></CheckBox>
+            <CheckBox text="Rumah Sakit Ibu Anak" [(ngModel)]="persalinan.tempat.rumah_sakit_ibu_anak"></CheckBox>
+            <CheckBox text="Rumah Sakit" [(ngModel)]="persalinan.tempat.rumah_sakit"></CheckBox>
+            <CheckBox text="Rumah Sakit Odha" [(ngModel)]="persalinan.tempat.rumah_sakit_odha"></CheckBox>
+            
+            <Label text="Penolong"></Label>
+            <CheckBox text="Keluarga" [(ngModel)]="persalinan.penolong.keluarga"></CheckBox>
+            <CheckBox text="Dukun" [(ngModel)]="persalinan.penolong.dukun"></CheckBox>
+            <CheckBox text="Bidan" [(ngModel)]="persalinan.penolong.bidan"></CheckBox>
+            <CheckBox text="Dokter Spesialis" [(ngModel)]="persalinan.penolong.dokter_spesialis"></CheckBox>
+            <CheckBox text="Dokter" [(ngModel)]="persalinan.penolong.dokter"></CheckBox>
+            <CheckBox text="Lainnya" [(ngModel)]="persalinan.penolong.lainnya"></CheckBox>
+            <CheckBox text="Tidak Ada" [(ngModel)]="persalinan.penolong.tidak_ada"></CheckBox>
+
+            <Label text="Cara Persalinan"></Label>
+            <DropDown
+                [items]="caras"
+                style="font-size: 18pt; margin: 8dp"
+                class="dropdown"
+                [selectedIndex] = "persalinan.cara_persalinan"
+                (selectedIndexChanged)="persalinan.cara_persalinan = $event.newIndex"
+            ></DropDown>
+
+            <Label text="Manajemen"></Label>
+            <CheckBox text="Injeksi Oksitoksin" [(ngModel)]="persalinan.manajemen.injeksi_oksitoksin"></CheckBox>
+            <CheckBox text="Peregangan Tali Pusat" [(ngModel)]="persalinan.manajemen.peregangan_tali_pusat"></CheckBox>
+            <CheckBox text="Massage Fundus Uteri" [(ngModel)]="persalinan.manajemen.masase_fundus_uteri"></CheckBox>
+
+            <TextInputLayout hint="Pelayanan IMD" hintAnimationEnabled="true">
+                <TextField [(ngModel)]="persalinan.pelayanan_imd" ></TextField>
+            </TextInputLayout>
+        
+            <Label text="Pelayanan"></Label>            
+            <CheckBox text="Partograf" [(ngModel)]="persalinan.pelayanan.partograf"></CheckBox>
+            <CheckBox text="Buku KIA" [(ngModel)]="persalinan.pelayanan.buku_kia"></CheckBox>
+
+            <TextInputLayout hint="Obat ARV yang diberikan" hintAnimationEnabled="true">
+                <TextField [(ngModel)]="persalinan.arv" ></TextField>
+            </TextInputLayout>
+
+            <TextInputLayout hint="Obat Malaria yang diberikan" hintAnimationEnabled="true">
+                <TextField [(ngModel)]="persalinan.malaria" ></TextField>
+            </TextInputLayout>
+
+            <TextInputLayout hint="Tubercolosis" hintAnimationEnabled="true">
+                <TextField [(ngModel)]="persalinan.tb" ></TextField>
+            </TextInputLayout>
+
+            <Label text="Komplikasi"></Label>
+            <CheckBox text="Distosia" [(ngModel)]="persalinan.komplikasi.distosia"></CheckBox>
+            <CheckBox text="HDK" [(ngModel)]="persalinan.komplikasi.hdk"></CheckBox>
+            <CheckBox text="PPP" [(ngModel)]="persalinan.komplikasi.ppp"></CheckBox>
+            <CheckBox text="Infeksi" [(ngModel)]="persalinan.komplikasi.infeksi"></CheckBox>
+            
+            <TextInputLayout hint="Komplikasi Lainnya" hintAnimationEnabled="true">
+                <TextField [(ngModel)]="persalinan.komplikasi_lainnya" ></TextField>
+            </TextInputLayout>
+
+            <Label text="Dirujuk ke "></Label>
+            <DropDown
+                [items]="rujukans"
+                style="font-size: 18pt; margin: 8dp"
+                class="dropdown"
+                [selectedIndex] = "persalinan.dirujuk"
+                (selectedIndexChanged)="persalinan.dirujuk = $event.newIndex"
+            ></DropDown>
+
+            <CheckBox text="Tiba" [(ngModel)]="persalinan.tiba"></CheckBox>
+            <CheckBox text="Pulang" [(ngModel)]="persalinan.pulang"></CheckBox>
+
+            <TextInputLayout hint="Alamat" hintAnimationEnabled="true">
+                <TextField [(ngModel)]="persalinan.alamat" ></TextField>
+            </TextInputLayout>
+
             <Button text="simpan" (tap)="save_persalinan()"></Button>
 
         </StackLayout>
@@ -463,7 +587,35 @@
 
     </GridLayout>
 
-    <!--<GridLayout row="auto,*" *tabItem="{title: 'Nifas'}"></GridLayout>-->
+    <GridLayout row="auto,*" *tabItem="{title: 'Nifas'}">
+        <RadListView
+            [items]="nifases"
+            pullToRefresh="true"
+            (pullToRefreshInitiated)="loadNifases($event)"
+            selectedBehavior="Press"
+        >
+
+            <ng-template tkListItemTemplate let-item="item">
+
+                <CardView class="card-list" radius="8">
+                    <GridLayout columns="*,auto" class="wrapper" (tap)="edit_nifas(item)" orientation="horizontal">
+                        <StackLayout col="0" orientaion="vertical">
+                            <Label class="title" [text]="item.tanggal"></Label>
+                            <Label class="desc" [text]="'KF '+item.kf"></Label>
+                        </StackLayout>
+
+                        <Image col="1" class="ic_action" (tap)="delete_nifas(item)" src="res://ic_delete_black_48dp"></Image>
+
+                    </GridLayout>
+                </CardView>
+
+            </ng-template>
+
+        </RadListView>
+
+        <FAB:fab (tap)="add_nifas()" class="fab-button" row="1" rippleColor="#f1f1f1" icon="res://ic_add_white_24dp" ></FAB:fab>
+
+    </GridLayout>
 
 
 

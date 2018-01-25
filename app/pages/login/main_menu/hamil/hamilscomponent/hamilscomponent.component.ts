@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+ import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import {ActivatedRoute, NavigationExtras, Router} from '@angular/router';
-import { Ibuhamilservice } from '../../anaks/ibuhamilservice';
 import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
 import { Observable } from 'rxjs/Observable';
 import { AddHamilComponentComponent } from '../add-hamil-component/add-hamil-component.component';
@@ -9,6 +8,7 @@ import * as Toast from "nativescript-toast";
 import * as dialogs from "ui/dialogs"
 import {KaBeService} from "./ka-be.service";
 import * as moment from "moment"
+import {Ibuhamilservice} from "../../ibuhamilservice";
 
 @Component({
   moduleId: module.id,
@@ -122,7 +122,7 @@ export class HamilscomponentComponent implements OnInit {
         let navextra:NavigationExtras = {
             queryParams: {id_kehamilan:id_kehamilan, id_orangtua:this.orangtua.id}
         };
-        this.route.navigate(["kehamilan"], navextra)
+        this.route.navigate(["menuhamil"], navextra)
     }
 
     load_kabe(){
@@ -161,7 +161,6 @@ export class HamilscomponentComponent implements OnInit {
         console.log(JSON.stringify(kabe_post))
         this.kbServ.editKabe(this.orangtua.id,kabe_post).subscribe(
             res=>Toast.makeText(res.message).show(),
-            err => Toast.makeText(err.json().message).show()
 
         );
     }

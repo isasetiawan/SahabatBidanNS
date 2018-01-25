@@ -68,6 +68,7 @@ export class ProfileComponent implements OnInit{
                 this.selkab = "";
                 this.selkec = "";
                 this.selpus = "";
+                this.selkelu = "";
                 this.loadkabupatens();
             }
         });
@@ -96,6 +97,7 @@ export class ProfileComponent implements OnInit{
                 this.bidan.kabupaten_id= this.kabupatens.find(x => x.nama === result).id;
                 this.selkec = "";
                 this.selpus = "";
+                this.selkelu = "";
                 this.loadkecamatans();
             }
         });
@@ -123,6 +125,7 @@ export class ProfileComponent implements OnInit{
                 this.selkec = result;
                 this.bidan.kecamatan_id= this.kecamatans.find(x => x.nama === result).id;
                 this.selpus = "";
+                this.selkelu = "";
                 this.loadpuskesmas();
             }
         });
@@ -149,6 +152,7 @@ export class ProfileComponent implements OnInit{
             if (result !== "Batal" && result !== this.selpus){
                 this.selpus = result;
                 this.bidan.puskesmas_id = this.puskesmases.find(x => x.nama === result).id;
+                this.selkelu = "";
                 this.loadkelurahan()
             }
         });

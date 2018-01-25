@@ -1,0 +1,54 @@
+<Page>
+    <ActionBar title="Nifas"></ActionBar>
+    <ScrollView>
+        <StackLayout padding="16dp">
+            
+            <RadDataForm [source]="nifas">
+
+                <TKEntityProperty tkDataFormProperty name="id" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="bidan_id" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="kehamilan_id" hidden="true"></TKEntityProperty>
+                
+
+                <TKEntityProperty tkDataFormProperty name="tanggal" displayName="Tanggal">
+                    <TKPropertyEditor tkEntityPropertyEditor type="DatePicker"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="hari_ke" displayName="Harike"></TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="kf" displayName="KF"></TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="td" displayName="Tekanan Darah (mm/Hg)"></TKEntityProperty>                
+
+                <TKEntityProperty tkDataFormProperty name="suhu" displayName="Suhu"></TKEntityProperty>
+                
+                <TKEntityProperty tkDataFormProperty name="catat_buku" displayName="Catat di buku KIA" [valuesProvider]="yatak">
+                    <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="fe" displayName="FE (tab/botol)"></TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="vit_a" displayName="Vitamin A" [valuesProvider]="yatak">
+                    <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="cd4" displayName="CD4"></TKEntityProperty>
+                
+                <TKEntityProperty tkDataFormProperty name="anti_malaria" displayName="Anti Malaria"></TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="anti_tb" displayName="Anti TB"></TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="thorax" displayName="Foto Thorax" [valuesProvider]="yatak">
+                    <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="tiba" displayName="Tiba (H/M)"></TKEntityProperty>
+                
+                <TKEntityProperty tkDataFormProperty name="pulang" displayName="Pulang (H/M)"></TKEntityProperty>
+
+            </RadDataForm>
+            
+            <Button (tap)="submit()" text="Simpan"></Button>
+        </StackLayout>
+    </ScrollView>
+</Page>

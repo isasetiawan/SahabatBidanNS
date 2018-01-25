@@ -1,0 +1,16 @@
+<StackLayout padding="16">
+    <Label fontSize="18" [text]="tahap"></Label>
+    <RadDataForm [source]="hasilKesehatan">
+        <TKEntityProperty tkDataFormProperty name="id" hidden="true" ></TKEntityProperty>
+        <TKEntityProperty tkDataFormProperty name="tumbuh_id" hidden="true" ></TKEntityProperty>
+        <TKEntityProperty tkDataFormProperty name="anak_id" hidden="true" ></TKEntityProperty>
+
+
+        <TKEntityProperty tkDataFormProperty name="status" displayName="Keadaan" [valuesProvider]="statuses">
+            <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+        </TKEntityProperty>
+        <TKEntityProperty tkDataFormProperty name="penyebab" displayName="Penyebab" ></TKEntityProperty>
+    </RadDataForm>
+    <Button text="Simpan" (tap)="submit()"></Button>
+    <Button text="Validasi" [visibility]="bidan === null ? 'visble' : 'hidden'" (tap)="validate()"></Button>
+</StackLayout>

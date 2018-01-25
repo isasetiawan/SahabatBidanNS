@@ -1,0 +1,9 @@
+<StackLayout padding="16">
+
+    <CheckBox [text]="'Apakah vaksin '+vaksin_name+' telah diberikan?'" [(ngModel)]="vaksinperiksa.value"></CheckBox>
+
+    <Label [visibility]="vaksinperiksa.value ? 'visible' : 'collapse' " text="Kapan vaksin diberikan?"></Label>
+    <DatePicker [visibility]="vaksinperiksa.value ? 'visible' : 'collapse' " [(ngModel)]="vaksinperiksa.tanggal"></DatePicker>
+
+    <Button (tap)="send()" text="Simpan"></Button>
+</StackLayout>

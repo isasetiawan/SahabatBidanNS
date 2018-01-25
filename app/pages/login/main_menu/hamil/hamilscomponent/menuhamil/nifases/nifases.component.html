@@ -1,0 +1,32 @@
+<Page>
+    <ActionBar title="Nifas"></ActionBar>
+    <GridLayout row="auto,*">
+        <RadListView
+                [items]="nifases"
+                pullToRefresh="true"
+                (pullToRefreshInitiated)="loadNifases($event)"
+                selectedBehavior="Press"
+        >
+
+            <ng-template tkListItemTemplate let-item="item">
+
+                <CardView class="card-list" radius="8">
+                    <GridLayout columns="*,auto" class="wrapper" (tap)="edit_nifas(item)" orientation="horizontal">
+                        <StackLayout col="0" orientaion="vertical">
+                            <Label class="title" [text]="item.tanggal"></Label>
+                            <Label class="desc" [text]="'KF '+item.kf"></Label>
+                        </StackLayout>
+
+                        <Image col="1" class="ic_action" (tap)="delete_nifas(item)" src="res://ic_delete_black_48dp"></Image>
+
+                    </GridLayout>
+                </CardView>
+
+            </ng-template>
+
+        </RadListView>
+
+        <FAB:fab (tap)="add_nifas()" class="fab-button" row="1" rippleColor="#f1f1f1" icon="res://ic_add_white_24dp" ></FAB:fab>
+
+    </GridLayout>
+</Page>

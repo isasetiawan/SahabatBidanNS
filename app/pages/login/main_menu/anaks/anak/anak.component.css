@@ -1,0 +1,16 @@
+.content{
+    padding: 16dp;
+}
+
+.item-menu{
+    margin:16dp;
+}
+
+.sub-menu{
+}
+
+Image{
+    height:50dp;
+    width: 50dp;
+    margin-right: 16dp;
+}

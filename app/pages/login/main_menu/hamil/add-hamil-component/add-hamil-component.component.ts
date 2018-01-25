@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ModalDialogParams} from "nativescript-angular";
-import {Ibuhamilservice} from "../../anaks/ibuhamilservice";
 import * as Toast from "nativescript-toast";
+import {Ibuhamilservice} from "../../ibuhamilservice";
 
 @Component({
   moduleId: module.id,
@@ -55,11 +55,6 @@ export class AddHamilComponentComponent implements OnInit {
                 res=>{
                     Toast.makeText(res.message).show();
                     this.params.closeCallback()
-                },
-                err => {
-                    let e = err.json();
-                    Toast.makeText(e.message).show();
-                    this.err_message = JSON.stringify(e.content);
                 }
             )
         } else {
@@ -67,11 +62,6 @@ export class AddHamilComponentComponent implements OnInit {
                 res=>{
                     Toast.makeText(res.message).show();
                     this.params.closeCallback()
-                },
-                err => {
-                    let e = err.json();
-                    Toast.makeText(e.message).show();
-                    this.err_message = JSON.stringify(e.content);
                 }
             )
         }

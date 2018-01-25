@@ -1,50 +1,61 @@
 import {Injectable} from "@angular/core";
-import {Http} from "@angular/http";
 import {Config} from "../../../utils/config";
+import {HttpClient} from "@angular/common/http";
+import {LoadingIndicator} from "nativescript-loading-indicator";
 
 @Injectable()
 
 export class OrangtuaService {
-    constructor(private http:Http){}
+
+    private loadingindicator;
+
+    constructor(private http:HttpClient){
+        this.loadingindicator= new LoadingIndicator();
+    }
 
     getOrangtuas(){
         return this.http.get(
             Config.urlAPI+"/orangtua",
-            {headers:Config.getHeaders()}
+            {headers:Config.createHeaders()}
         )
-            .map(res => res.json())
-            .catch(Config.handleErrors)
+            .catch(Config.errorCatcher)
     }
 
     pair(args:PairArgs){
+        this.loadingindicator.show(Config.progress_dialog_options);
         return this.http.post(
             Config.urlAPI+"/anak/pair",
             args,
-            {headers:Config.getHeaders()},
+            {headers:Config.createHeaders()},
         )
-            .map(res => res.json())
-            .catch(Config.handleErrors)
+            .catch(Config.errorCatcher)
+            .finally(()=>this.loadingindicator.hide())
+
     }
 
     unpair(args:UnpairArgs){
+        this.loadingindicator.show(Config.progress_dialog_options);
         return this.http.post(
             Config.urlAPI+"/anak/unpair",
             args,
-            {headers:Config.getHeaders()},
+            {headers:Config.createHeaders()},
         )
-            .map(res => res.json())
-            .catch(Config.handleErrors)
+            .catch(Config.errorCatcher)
+            .finally(()=>this.loadingindicator.hide())
+
     }
 
     children(idortu:number){
+        this.loadingindicator.show(Config.progress_dialog_options);
         let url = Config.urlAPI+"/orangtua/"+idortu+"/anak";
         console.log(url);
         return this.http.get(
             url,
-            {headers:Config.getHeaders()}
+            {headers:Config.createHeaders()}
         )
-            .map(res => res.json())
-            .catch(Config.handleErrors)
+            .catch(Config.errorCatcher)
+            .finally(()=>this.loadingindicator.hide())
+
     }
 }
 

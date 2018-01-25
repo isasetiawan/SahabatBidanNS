@@ -40,9 +40,6 @@ export class TindakanComponent implements OnInit {
             res=> {
                 this.tindakan = <Tindakan> res.content;
                 console.log(JSON.stringify(this.tindakan));
-            },
-            err => {
-                Toast.makeText(err.json().message).show();
             }
         )
     }
@@ -53,9 +50,6 @@ export class TindakanComponent implements OnInit {
             res=> {
                 Toast.makeText(res.message).show();
 
-            },
-            err => {
-                Toast.makeText(err.json().message).show();
             }
         )
     }

@@ -1,63 +1,71 @@
 <Page>
-    <ActionBar [title]="title">
+    <ActionBar title="Sahabat Bidan">
         <ActionItem android.position="popup" (tap)="gotoprofile()" text="Profil"></ActionItem>
         <ActionItem android.position="popup" (tap)="logout()" text="Keluar"></ActionItem>
     </ActionBar>
 
+
     <TabView>
 
-        <GridLayout margin="32dp" row="auto,*" *tabItem="{title: 'Ibu Hamil'}">
-            <RadListView
-                    [items]="ibuhamils"
-                    pullToRefresh="true"
-                    (pullToRefreshInitiated)="loadibuhamils($event)"
-                    selectedBehavior="Press"
-            >
+        <StackLayout margin="32dp" *tabItem="{title: 'Ibu Hamil'}" >
+            <SearchBar hint="Cari Ibu Hamil" (textChange)="onSearchBumils($event)" ></SearchBar>
+            <GridLayout row="auto,*">
+                <RadListView
+                        [items]="f_ibuhamils"
+                        pullToRefresh="true"
+                        (pullToRefreshInitiated)="loadibuhamils($event)"
+                        selectedBehavior="Press"
+                >
 
-                <ng-template tkListItemTemplate let-item="item">
-                    <CardView class="card-list" radius="8">
-                        <GridLayout columns="auto,*,auto" class="wrapper" orientation="horizontal" (tap)="onibuhamilselected(item.orangtua)">
-                            <Image col="0" class="icon" src='res://parent'></Image>
-                            <StackLayout col="1" orientaion="vertical" >
-                                <Label class="title" [text]="item.orangtua.ibu_nama"></Label>
-                                <Label class="desc" [text]="item.orangtua.ibu_alamat"></Label>
-                            </StackLayout>
-                            <Image col="2" class="ic_action" src="res://ic_delete_black_48dp" (tap)="unpairbumil(item.id)"></Image>
-                        </GridLayout>
-                    </CardView>
+                    <ng-template tkListItemTemplate let-item="item">
+                        <CardView class="card-list" radius="8">
+                            <GridLayout columns="auto,*,auto" class="wrapper" orientation="horizontal" (tap)="onibuhamilselected(item.orangtua)">
+                                <Image col="0" class="icon" src='res://parent'></Image>
+                                <StackLayout col="1" orientaion="vertical" >
+                                    <Label class="title" [text]="item.orangtua.ibu_nama"></Label>
+                                    <Label class="desc" [text]="item.orangtua.ibu_alamat"></Label>
+                                </StackLayout>
+                                <Image col="2" class="ic_action" src="res://ic_delete_black_48dp" (tap)="unpairbumil(item.id)"></Image>
+                            </GridLayout>
+                        </CardView>
 
-                </ng-template>
-            </RadListView>
+                    </ng-template>
+                </RadListView>
 
-            <FAB:fab (tap)="pairortu('hamil')" class="fab-button" row="1" rippleColor="#f1f1f1" ></FAB:fab>
-        </GridLayout>
+                <FAB:fab (tap)="pairortu('hamil')" class="fab-button" row="1" rippleColor="#f1f1f1" icon="res://ic_add_white_24dp" ></FAB:fab>
+            </GridLayout>
+        </StackLayout>
 
-        <GridLayout row="auto,*" *tabItem="{title: 'Ibu Anak'}" >
-            <RadListView
-                    [items]="orangtuas"
-                    pullToRefresh="true"
-                    (pullToRefreshInitiated)="loadOrangtuas($event)"
-                    selectedBehavior="Press"
-            >
 
-                <ng-template tkListItemTemplate let-item="item">
-                    <CardView class="card-list" radius="8">
-                        <GridLayout columns="auto,*,auto" class="wrapper" (tap)="onOrtuAnakItemSelected(item.orangtua)" orientation="horizontal">
-                            <Image col="0" class="icon" src='res://parent'></Image>
-                            <StackLayout col="1" orientaion="vertical" >
-                                <Label class="title" [text]="item.orangtua.ibu_nama"></Label>
-                                <Label class="desc" [text]="item.orangtua.ibu_alamat"></Label>
-                            </StackLayout>
-                            <Image col="2" class="ic_action" src="res://ic_delete_black_48dp" (tap)="unpairortu(item.id)"></Image>
-                        </GridLayout>
-                    </CardView>
+        <StackLayout margin="32dp" *tabItem="{title: 'Ibu Anak'}">
+            <SearchBar hint="Cari Ibu Anak" (textChange)="onSearchBunaks($event)" ></SearchBar>
+            <GridLayout row="auto,*">
+                <RadListView
+                        [items]="f_orangtuas"
+                        pullToRefresh="true"
+                        (pullToRefreshInitiated)="loadOrangtuas($event)"
+                        selectedBehavior="Press"
+                >
 
-                </ng-template>
-            </RadListView>
+                    <ng-template tkListItemTemplate let-item="item">
+                        <CardView class="card-list" radius="8">
+                            <GridLayout columns="auto,*,auto" class="wrapper" (tap)="onOrtuAnakItemSelected(item.orangtua)" orientation="horizontal">
+                                <Image col="0" class="icon" src='res://parent'></Image>
+                                <StackLayout col="1" orientaion="vertical" >
+                                    <Label class="title" [text]="item.orangtua.ibu_nama"></Label>
+                                    <Label class="desc" [text]="item.orangtua.ibu_alamat"></Label>
+                                </StackLayout>
+                                <Image col="2" class="ic_action" src="res://ic_delete_black_48dp" (tap)="unpairortu(item.id)"></Image>
+                            </GridLayout>
+                        </CardView>
 
-            <FAB:fab (tap)="pairortu('anak')" class="fab-button" row="1" rippleColor="#f1f1f1" ></FAB:fab>
+                    </ng-template>
+                </RadListView>
 
-        </GridLayout>
+                <FAB:fab (tap)="pairortu('anak')" class="fab-button" row="1" rippleColor="#f1f1f1" icon="res://ic_add_white_24dp" ></FAB:fab>
+
+            </GridLayout>
+        </StackLayout>
 
     </TabView>
 </Page>

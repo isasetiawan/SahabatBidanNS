@@ -1,0 +1,11 @@
+
+.wh-label{
+    font-size: 24pt;
+    color: #333333;
+}
+
+ActionBar {
+    border-width: 1;
+    border-color: transparent;
+    background-color: #30bcff;
+}

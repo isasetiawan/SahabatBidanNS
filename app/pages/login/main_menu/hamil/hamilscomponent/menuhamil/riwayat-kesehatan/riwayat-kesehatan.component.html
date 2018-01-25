@@ -1,0 +1,107 @@
+<Page>
+    <ActionBar title="Riwayat Kesehatan"></ActionBar>
+    <ScrollView>
+
+        <StackLayout padding="16">
+            <RadDataForm [source]="kesehatan">
+                <TKEntityProperty tkDataFormProperty name="id" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="kehamilan_id" hidden="true"></TKEntityProperty>
+
+                <TKPropertyGroup tkDataFormGroups collapsible="true" name="Penyakit yang diidap" hidden="false">
+
+                    <TKEntityProperty tkPropertyGroupProperties name="penyakit_darah_tinggi" displayName="Penyakit Darah Tinggi" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="penyakit_gula" displayName="Penyakit Gula" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="penyakit_asma" displayName="Penyakit Asma" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="penyakit_jantung" displayName="Penyakit Jantung" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="penyakit_seks_menular" displayName="Penyakit Seks Menular" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="penyakit_malaria" displayName="Malaria" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="penyakit_kurang_darah" displayName="Penyakit Kurang Darah" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="penyakit_tcp_paru" displayName="Penyakit TCP/Paru-paru" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="penyakit_lainnya" displayName="Penyakit Lainnya">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                </TKPropertyGroup>
+
+                <TKPropertyGroup tkDataFormGroups collapsible="true" name="Penyakit turunan" hidden="false">
+
+                    <TKEntityProperty tkPropertyGroupProperties name="turunan_darah_tinggi" displayName="Penyakit Darah Tinggi" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="turunan_gula" displayName="Penyakit Gula" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="turunan_asma" displayName="Penyakit Asma" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="turunan_jantung" displayName="Penyakit Jantung" [valuesProvider]="keluhanChoices">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="turunan_lainnya" displayName="Penyakit Lainnya">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="riwayat_kontrasepsi" displayName="Riwayat Kontrasepsi" [valuesProvider]="r_kontrasepsi">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                </TKPropertyGroup>
+
+                <TKPropertyGroup tkDataFormGroups collapsible="true" name="Pemberian Imunisasi" hidden="false">
+
+                    <TKEntityProperty tkPropertyGroupProperties name="imunisasi_tt1_pada_tahun" displayName="Imunisasi TT1 pada tahun">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="imunisasi_tt2_pada_tahun" displayName="Imunisasi TT2 pada tahun">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="imunisasi_tt3_pada_tahun" displayName="Imunisasi TT3 pada tahun">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="imunisasi_tt4_pada_tahun" displayName="Imunisasi TT4 pada tahun">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                    <TKEntityProperty tkPropertyGroupProperties name="imunisasi_tt5_pada_tahun" displayName="Imunisasi TT5 pada tahun">
+                        <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
+                    </TKEntityProperty>
+
+                </TKPropertyGroup>
+
+            </RadDataForm>
+            <Button text="simpan" (tap)="save_r_kesehatan()"></Button>
+        </StackLayout>
+
+    </ScrollView>
+</Page>

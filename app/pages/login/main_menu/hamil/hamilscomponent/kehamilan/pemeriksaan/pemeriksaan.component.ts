@@ -85,8 +85,7 @@ export class PemeriksaanComponent implements OnInit {
                 res => {
                     Toast.makeText(res.message).show();
                     this.rouex.backToPreviousPage()
-                },
-                err => Toast.makeText(err.json().message).show()
+                }
 
             )
         } else{
@@ -94,8 +93,7 @@ export class PemeriksaanComponent implements OnInit {
                 res => {
                     Toast.makeText(res.message).show();
                     this.rouex.backToPreviousPage()
-                },
-                err => Toast.makeText(err.json().message).show()
+                }
 
             )
         }

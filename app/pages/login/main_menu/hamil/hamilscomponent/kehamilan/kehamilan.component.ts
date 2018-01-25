@@ -13,6 +13,10 @@ import {ModalAddPlansComponent} from "./modal-add-plans/modal-add-plans.componen
 import {PemeriksaanService} from "./pemeriksaan.service";
 import {PlatformLocation} from "@angular/common";
 import {ResumeComponent} from "./pemeriksaan/resume/resume.component";
+import { NifasService } from './nifas/nifas.service';
+import {Nifas} from './nifas/Nifas'
+import * as moment from 'moment'
+import { alert } from 'tns-core-modules/ui/dialogs/dialogs';
 
 @Component({
     moduleId: module.id,
@@ -26,7 +30,8 @@ import {ResumeComponent} from "./pemeriksaan/resume/resume.component";
         PersalinanService,
         MelahirkanService,
         RencanaPersalinanService,
-        PemeriksaanService
+        PemeriksaanService,
+        NifasService,
     ]
 })
 export class KehamilanComponent implements OnInit {
@@ -37,7 +42,10 @@ export class KehamilanComponent implements OnInit {
     keluhan:any;
     persalinan:any;
     rencanas:ObservableArray<any>;
-    pemeriksaans:ObservableArray<any>
+    pemeriksaans:ObservableArray<any>;
+    nifases:ObservableArray<Nifas>;
+
+    moment = moment;
 
     dropoutChoice = [
         {key:"1",label:"Ya"},
@@ -77,11 +85,13 @@ export class KehamilanComponent implements OnInit {
         private modal:ModalDialogService,
         private vcrf:ViewContainerRef,
         private pemeriksaanServ:PemeriksaanService,
-        private location:PlatformLocation
+        private location:PlatformLocation,
+        private nivserv:NifasService
 
     ) {
         this.rencanas = new ObservableArray();
         this.pemeriksaans = new ObservableArray();
+        this.nifases = new ObservableArray();
     }
 
     id_kehamilan:number;
@@ -98,11 +108,13 @@ export class KehamilanComponent implements OnInit {
               this.load_melahirkan();
               this.load_persalinan();
               this.load_rencanas(null);
-              this.load_pemeriksaans(null)
+              this.load_pemeriksaans(null);
+              this.loadNifases(null)
           }
         );
         this.location.onPopState(()=>{
-            this.load_pemeriksaans(null)
+            this.load_pemeriksaans(null);
+            this.loadNifases(null);
         })
     }
 
@@ -158,13 +170,20 @@ export class KehamilanComponent implements OnInit {
     }
 
     save_melahirkan(){
-        // console.log(JSON.stringify(this.melahirkan));
+        console.log(JSON.stringify(this.melahirkan));
         this.melahirkanServ.updateMelahirkan(this.id_kehamilan,this.melahirkan).subscribe(
-            res => Toast.makeText(res.message).show()
+            res => {
+                Toast.makeText(res.message).show();
+                this.load_melahirkan();
+            }
         )
     }
 
     // Persalinan
+
+    presentasies:any[]=["","Puncak Kepala","Bokong","Belakang Kepala","Dahi","Lintang","Muka","Kaki","Menumbung","Campur"];
+    caras:any[]=["","Normal","Vacum","Forceps","Sectio Caesar"];
+    rujukans:any[]=["","Puskesmas","Rumah Sakit Bersalin","Rumah Sakit Ibu & Anak","Rumah Sakit","Lainnya","Tidak Dirujuk"];
 
     load_persalinan(){
         this.persalinanServ.getpersalinan(this.id_kehamilan).subscribe(
@@ -173,6 +192,7 @@ export class KehamilanComponent implements OnInit {
     }
 
     save_persalinan(){
+        // console.log(JSON.stringify(this.persalinan))
         this.persalinanServ.updatepersalinan(this.id_kehamilan,this.persalinan).subscribe(
             res => Toast.makeText(res.message).show()
         );
@@ -279,9 +299,6 @@ export class KehamilanComponent implements OnInit {
             res => {
                 Toast.makeText(res.message).show();
                 this.load_pemeriksaans(null);
-            },
-            err => {
-                Toast.makeText(err.json().message).show()
             }
         );
     }
@@ -296,6 +313,49 @@ export class KehamilanComponent implements OnInit {
             }
         };
         this.routExt.navigate(['tindakan'], extra);
+    }
+
+    //Nifas
+
+    loadNifases(args){
+        this.nivserv.list(this.id_kehamilan).subscribe(
+            res => {
+                console.log(JSON.stringify(res.content));
+                this.nifases = res.content;
+                if (args !== null) args.object.notifyPullToRefreshFinished();                
+            }
+        );
+    }
+
+    edit_nifas(nifas:Nifas){
+        let extra:NavigationExtras = {
+            queryParams: {
+                id_kehamilan:this.id_kehamilan,
+                nifas:JSON.stringify(nifas)
+            }
+        };
+        this.routExt.navigate(['nifas'], extra);
+    }
+
+    add_nifas(){
+        let extra:NavigationExtras = {
+            queryParams: {
+                id_kehamilan:this.id_kehamilan
+            }
+        };
+        this.routExt.navigate(['nifas'], extra);
+    }
+
+    delete_nifas(nifas:Nifas){
+        this.nivserv.delete(this.id_kehamilan,nifas.id).subscribe(
+            res => {
+                Toast.makeText(res.message).show();
+                this.loadNifases(null);
+            },
+            err => {
+                Toast.makeText(err.json().message).show();
+            }
+        )
     }
 
 }

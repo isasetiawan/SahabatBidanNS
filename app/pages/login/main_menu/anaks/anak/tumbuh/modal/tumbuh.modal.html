@@ -1,0 +1,18 @@
+<StackLayout padding="16">
+
+    <Label text="Tanggal pemeriksaan"></Label>
+    <DatePicker [(ngModel)]="tumbuh.tanggal" ></DatePicker>
+
+    <Label text="Tinggi badan"></Label>
+    <TextField [(ngModel)]="tumbuh.tinggi" hint="dalam centimeter" keyboardType="number"></TextField>
+
+    <Label text="Berat Badan"></Label>
+    <TextField [(ngModel)]="tumbuh.berat" hint="dalam kilogram" keyboardType="number"></TextField>
+
+    <Label text="Tempat Pemeriksaan"></Label>
+    <TextField [(ngModel)]="tumbuh.tempat_pemeriksaan" hint="Tempat Pemeriksaan" ></TextField>
+
+    <Button (tap)="submit()" class="btn-def" text="Simpan"></Button>
+    <Button (tap)="validate()" class="btn-def" text="Validasi" [visibility]=" !is_store ? 'visible' : 'collapsed'  "></Button>
+
+</StackLayout>

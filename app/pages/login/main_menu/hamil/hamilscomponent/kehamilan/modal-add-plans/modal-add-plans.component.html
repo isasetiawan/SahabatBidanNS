@@ -1,6 +1,6 @@
-<ScrollView padding="16dp">
+<ScrollView>
 
-    <StackLayout>
+    <StackLayout padding="16dp">
         <RadDataForm [source]="rencana" >
             <TKEntityProperty tkDataFormProperty name="id" hidden="true"></TKEntityProperty>
             <TKEntityProperty tkDataFormProperty name="kehamilan_id" hidden="true"></TKEntityProperty>
@@ -31,7 +31,7 @@
             </TKEntityProperty>
 
         </RadDataForm>
-        <Button  text="Tambahkan" (tap) = "submit()"> </Button>
+        <Button  text="Kirim" (tap) = "submit()"> </Button>
     </StackLayout>
 
 </ScrollView>

@@ -1,0 +1,56 @@
+<Page>
+    <ActionBar title="Melahirkan">
+    </ActionBar>
+
+    <ScrollView>
+
+        <StackLayout padding="16">
+            <RadDataForm [source]="melahirkan" >
+                <TKEntityProperty tkDataFormProperty name="id" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="kehamilan_id" hidden="true"></TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="tanggal_melahirkan" displayName="Tanggal Melahirkan">
+                    <TKPropertyEditor tkEntityPropertyEditor type="DatePicker"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="cara_persalinan" displayName="Cara Persalinan">
+                    <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="keadaan_ibu" displayName="Keadaan Ibu">
+                    <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="tanggal_ibu_meninggal" displayName="Tanggal Ibu Meninggal">
+                    <TKPropertyEditor tkEntityPropertyEditor type="DatePicker"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="keadaan_bayi" displayName="Keadaan Bayi">
+                    <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="tanggal_bayi_meninggal" displayName="Tanggal bayi meninggal">
+                    <TKPropertyEditor tkEntityPropertyEditor type="DatePicker"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="jenis_kelamin_bayi" displayName="Jenis Kelamin Bayi" [valuesProvider]="['L','P']">
+                    <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="with_husband" displayName="Didampingi Suami" [valuesProvider]="keluhanChoices">
+                    <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="selesai" displayName="Selesai" [valuesProvider]="keluhanChoices">
+                    <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                </TKEntityProperty>
+
+
+            </RadDataForm>
+            <Button text="simpan" (tap)="save_melahirkan()"></Button>
+
+        </StackLayout>
+
+    </ScrollView>
+
+</Page>

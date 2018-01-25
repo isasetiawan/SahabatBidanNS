@@ -1,16 +1,16 @@
-<StackLayout class="page">
-    <Image src="res://logo" stretch="aspectFit" height="300dp" horizontalAlignment="center"></Image>
+<GridLayout rows="*,auto,auto,auto" class="login_page">
+    <Image row="0" src="res://login" stretch="aspectFit" horizontalAlignment="center"></Image>
 
-    <TextInputLayout hint="Nama Pengguna" hintAnimationEnabled="true">
+    <TextInputLayout row="1" hint="Nama Pengguna" hintAnimationEnabled="true">
         <TextField [(ngModel)]="user.username" autocapitalizationType="none"></TextField>
     </TextInputLayout>
 
-    <TextInputLayout hint="Kata Sandi" hintAnimationEnabled="true">
+    <TextInputLayout row="2" hint="Kata Sandi" hintAnimationEnabled="true">
         <TextField [(ngModel)]="user.password" secure="true"></TextField>
     </TextInputLayout>
 
 
-    <Button (tap)="login()" text="Masuk"> </Button>
-    <Label (tap)="navigatemenu()" textAlignment="center" text="Lupa Kata Sandi"></Label>
+    <Button row="3" (tap)="login()" text="Masuk"> </Button>
+    <!--<Label row="4" (tap)="navigatemenu()" textAlignment="center" text="Lupa Kata Sandi"></Label>-->
     
-</StackLayout>
+</GridLayout>

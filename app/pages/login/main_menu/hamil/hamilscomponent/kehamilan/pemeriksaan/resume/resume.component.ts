@@ -17,9 +17,9 @@ export class ResumeComponent implements OnInit {
     id_pemeriksaan:number;
     id_orangtua:number;
 
-    resume_all:string="";
-    resume_ibu:string="";
-    resume_janin:string="";
+    resume_all:[string];
+    resume_ibu:[string];
+    resume_janin:[string];
 
     constructor(private serv:PemeriksaanService, private params:ModalDialogParams) {
         this.id_kehamilan = params.context.id_kehamilan;
@@ -39,9 +39,6 @@ export class ResumeComponent implements OnInit {
                 console.log(this.resume_ibu);
                 console.log(this.resume_janin);
 
-            },
-            err => {
-                Toast.makeText(err.json().message).show();
             }
         );
     }

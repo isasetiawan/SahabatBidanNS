@@ -17,6 +17,10 @@
                 <TKEntityProperty tkDataFormProperty name="provinsi_id" hidden="true"></TKEntityProperty>
                 <TKEntityProperty tkDataFormProperty name="kecamatan_id" hidden="true"></TKEntityProperty>
                 <TKEntityProperty tkDataFormProperty name="kabupaten_id" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="kelurahan_id" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="ibu_domisili" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="is_domisili_valid" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="status" hidden="true"></TKEntityProperty>
 
                 <TKEntityProperty tkDataFormProperty name="ibu_nama" displayName="Nama Ibu">
                 </TKEntityProperty>
@@ -46,7 +50,7 @@
 
         </StackLayout>
 
-        <StackLayout *tabItem="{title: 'Anak-anak'}">
+        <StackLayout margin="32dp" *tabItem="{title: 'Anak-anak'}">
 
             <RadListView
                     [items]="anaks"
@@ -55,7 +59,7 @@
                     selectedBehavior="Press"
             >
                 <ng-template tkListItemTemplate let-item="item">
-                    <CardView class="card-list" margin="8" radius="8">
+                    <CardView (tap)="goto_anak(item)" class="card-list" radius="8">
                         <StackLayout class="wrapper" orientation="horizontal">
                             <Image class="icon" [src]='item.gender=="L" ? "res://boy" : "res://girl"'></Image>
                             <StackLayout orientaion="vertical" >

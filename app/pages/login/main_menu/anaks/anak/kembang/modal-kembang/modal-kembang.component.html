@@ -1,0 +1,22 @@
+<Page>
+    <StackLayout padding="16">
+
+        <GridLayout columns="*,auto" rows="auto,*" marginBottom="16" >
+            <Label verticalAlignment="center" row="0" col="0" class="title" [text]="'Perkembangan pada '+kembang.umur + ' bulan'"></Label>
+            <Button (tap)="validate()" [class]="kembang.hasil.validasi === 1 ? 'validated' : '' " row="0" col="1" [text]="kembang.hasil.validasi === 1 ? 'Valid' : 'Belum valid' "></Button>
+
+            <RadListView row="1" col="0" colSpan="2" [items]="ansque" pullToRefresh="false" selectedBehavior="Press">
+                <ng-template tkListItemTemplate let-item="item">
+                    <CardView class="card-list" margin="8" radius="8">
+                        <StackLayout class="wrapper" orientaion="vertical" >
+                            <Label textWrap="true" class="title" [text]="item.question"></Label>
+                            <Label textAlignment="right" class="desc" [text]="item.answer === 1 ? 'Ya' : 'Tidak' "></Label>
+                        </StackLayout>
+                    </CardView>
+                </ng-template>
+            </RadListView>
+
+        </GridLayout>
+
+    </StackLayout>
+</Page>

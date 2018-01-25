@@ -1,0 +1,144 @@
+<Page>
+    <ActionBar title="Persalinan">
+    </ActionBar>
+    <ScrollView>
+        <StackLayout padding="16">
+
+            <Label text="Tanggal kala 1"></Label>
+            <DatePicker [date]='persalinan.tanggal_kala_1' (dateChange)="persalinan.tanggal_kala_1 = moment($event.value).format('YYYY-MM-DD')"></DatePicker>
+
+            <Label text="Jam kala 1"></Label>
+            <TimePicker [time]='moment((persalinan.jam_kala_1 !== null ? persalinan.jam_kala_1 : "00:00"),"HH:mm").toDate()' (timeChange)="persalinan.jam_kala_1 = moment($event.value).format('HH:mm')"></TimePicker>
+
+            <Label text="Tanggal kala 2"></Label>
+            <DatePicker [date]='persalinan.tanggal_kala_2 ? moment(persalinan.tanggal_kala_2).toDate() : moment().toDate()' (dateChange)="persalinan.tanggal_kala_2 = moment($event.value).format('YYYY-MM-DD')"></DatePicker>
+
+            <Label text="Jam kala 2"></Label>
+            <TimePicker [time]='moment((persalinan.jam_kala_2 !== null ? persalinan.jam_kala_2 : "00:00"),"HH:mm").toDate()' (timeChange)="persalinan.jam_kala_2 = moment($event.value).format('HH:mm')"></TimePicker>
+
+            <Label text="Tanggal Bayi Lahir"></Label>
+            <DatePicker [date]='persalinan.tanggal_bayi_lahir' (dateChange)="persalinan.tanggal_bayi_lahir = moment($event.value).format('YYYY-MM-DD')"></DatePicker>
+
+            <Label text="Jam Bayi Lahir"></Label>
+            <TimePicker [time]='moment((persalinan.jam_bayi_lahir !== null ? persalinan.jam_bayi_lahir : "00:00"),"HH:mm").toDate()' (timeChange)="persalinan.jam_bayi_lahir = moment($event.value).format('HH:mm')"></TimePicker>
+
+            <Label text="Tanggal Plasenta Lahir"></Label>
+            <DatePicker [date]='persalinan.tanggal_plasenta_lahir' (dateChange)="persalinan.tanggal_plasenta_lahir = moment($event.value).format('YYYY-MM-DD')"></DatePicker>
+
+            <Label text="Jam Plasenta Lahir"></Label>
+            <TimePicker [time]='moment((persalinan.jam_plasenta_lahir !== null ? persalinan.jam_plasenta_lahir : "00:00"),"HH:mm").toDate()' (timeChange)="persalinan.jam_plasenta_lahir = moment($event.value).format('HH:mm')"></TimePicker>
+
+            <TextInputLayout hint="Perdarahan" hintAnimationEnabled="true">
+                <TextField [(ngModel)]="persalinan.perdarahan" ></TextField>
+            </TextInputLayout>
+
+            <TextInputLayout hint="Usia Kehamilan" hintAnimationEnabled="true">
+                <TextField [(ngModel)]="persalinan.usia_kehamilan" ></TextField>
+            </TextInputLayout>
+
+            <TextInputLayout hint="Usia HPHT" hintAnimationEnabled="true">
+                <TextField [(ngModel)]="persalinan.usia_hpht" ></TextField>
+            </TextInputLayout>
+
+            <CheckBox text="Keadaan Ibu Hidup" [(ngModel)]="persalinan.keadaan_ibu"></CheckBox>
+
+            <CheckBox text="Keadaan Bayi Hidup" [(ngModel)]="persalinan.keadaan_bayi"></CheckBox>
+
+            <TextInputLayout hint="Berat Bayi (Kilogram)" hintAnimationEnabled="true">
+                <TextField [(ngModel)]="persalinan.berat_bayi" ></TextField>
+            </TextInputLayout>
+
+            <Label text="Presentasi Janin"></Label>
+            <DropDown
+                    [items]="presentasies"
+                    style="font-size: 18pt; margin: 8dp"
+                    class="dropdown"
+                    [selectedIndex] = "persalinan.presentasi"
+                    (selectedIndexChanged)="persalinan.presentasi = $event.newIndex"
+            ></DropDown>
+
+            <Label text="Tempat"></Label>
+            <CheckBox text="Rumah" [(ngModel)]="persalinan.tempat.rumah"></CheckBox>
+            <CheckBox text="Polindes" [(ngModel)]="persalinan.tempat.polindes"></CheckBox>
+            <CheckBox text="Pustu" [(ngModel)]="persalinan.tempat.pustu"></CheckBox>
+            <CheckBox text="Puskesmas" [(ngModel)]="persalinan.tempat.puskesmas"></CheckBox>
+            <CheckBox text="Rumah Bersalin" [(ngModel)]="persalinan.tempat.rumah_bersalin"></CheckBox>
+            <CheckBox text="Rumah Sakit Ibu Anak" [(ngModel)]="persalinan.tempat.rumah_sakit_ibu_anak"></CheckBox>
+            <CheckBox text="Rumah Sakit" [(ngModel)]="persalinan.tempat.rumah_sakit"></CheckBox>
+            <CheckBox text="Rumah Sakit Odha" [(ngModel)]="persalinan.tempat.rumah_sakit_odha"></CheckBox>
+
+            <Label text="Penolong"></Label>
+            <CheckBox text="Keluarga" [(ngModel)]="persalinan.penolong.keluarga"></CheckBox>
+            <CheckBox text="Dukun" [(ngModel)]="persalinan.penolong.dukun"></CheckBox>
+            <CheckBox text="Bidan" [(ngModel)]="persalinan.penolong.bidan"></CheckBox>
+            <CheckBox text="Dokter Spesialis" [(ngModel)]="persalinan.penolong.dokter_spesialis"></CheckBox>
+            <CheckBox text="Dokter" [(ngModel)]="persalinan.penolong.dokter"></CheckBox>
+            <CheckBox text="Lainnya" [(ngModel)]="persalinan.penolong.lainnya"></CheckBox>
+            <CheckBox text="Tidak Ada" [(ngModel)]="persalinan.penolong.tidak_ada"></CheckBox>
+
+            <Label text="Cara Persalinan"></Label>
+            <DropDown
+                    [items]="caras"
+                    style="font-size: 18pt; margin: 8dp"
+                    class="dropdown"
+                    [selectedIndex] = "persalinan.cara_persalinan"
+                    (selectedIndexChanged)="persalinan.cara_persalinan = $event.newIndex"
+            ></DropDown>
+
+            <Label text="Manajemen"></Label>
+            <CheckBox text="Injeksi Oksitoksin" [(ngModel)]="persalinan.manajemen.injeksi_oksitoksin"></CheckBox>
+            <CheckBox text="Peregangan Tali Pusat" [(ngModel)]="persalinan.manajemen.peregangan_tali_pusat"></CheckBox>
+            <CheckBox text="Massage Fundus Uteri" [(ngModel)]="persalinan.manajemen.masase_fundus_uteri"></CheckBox>
+
+            <TextInputLayout hint="Pelayanan IMD" hintAnimationEnabled="true">
+                <TextField [(ngModel)]="persalinan.pelayanan_imd" ></TextField>
+            </TextInputLayout>
+
+            <Label text="Pelayanan"></Label>
+            <CheckBox text="Partograf" [(ngModel)]="persalinan.pelayanan.partograf"></CheckBox>
+            <CheckBox text="Buku KIA" [(ngModel)]="persalinan.pelayanan.buku_kia"></CheckBox>
+
+            <TextInputLayout hint="Obat ARV yang diberikan" hintAnimationEnabled="true">
+                <TextField [(ngModel)]="persalinan.arv" ></TextField>
+            </TextInputLayout>
+
+            <TextInputLayout hint="Obat Malaria yang diberikan" hintAnimationEnabled="true">
+                <TextField [(ngModel)]="persalinan.malaria" ></TextField>
+            </TextInputLayout>
+
+            <TextInputLayout hint="Tubercolosis" hintAnimationEnabled="true">
+                <TextField [(ngModel)]="persalinan.tb" ></TextField>
+            </TextInputLayout>
+
+            <Label text="Komplikasi"></Label>
+            <CheckBox text="Distosia" [(ngModel)]="persalinan.komplikasi.distosia"></CheckBox>
+            <CheckBox text="HDK" [(ngModel)]="persalinan.komplikasi.hdk"></CheckBox>
+            <CheckBox text="PPP" [(ngModel)]="persalinan.komplikasi.ppp"></CheckBox>
+            <CheckBox text="Infeksi" [(ngModel)]="persalinan.komplikasi.infeksi"></CheckBox>
+
+            <TextInputLayout hint="Komplikasi Lainnya" hintAnimationEnabled="true">
+                <TextField [(ngModel)]="persalinan.komplikasi_lainnya" ></TextField>
+            </TextInputLayout>
+
+            <Label text="Dirujuk ke "></Label>
+            <DropDown
+                    [items]="rujukans"
+                    style="font-size: 18pt; margin: 8dp"
+                    class="dropdown"
+                    [selectedIndex] = "persalinan.dirujuk"
+                    (selectedIndexChanged)="persalinan.dirujuk = $event.newIndex"
+            ></DropDown>
+
+            <CheckBox text="Tiba" [(ngModel)]="persalinan.tiba"></CheckBox>
+            <CheckBox text="Pulang" [(ngModel)]="persalinan.pulang"></CheckBox>
+
+            <TextInputLayout hint="Alamat" hintAnimationEnabled="true">
+                <TextField [(ngModel)]="persalinan.alamat" ></TextField>
+            </TextInputLayout>
+
+            <Button text="simpan" (tap)="save_persalinan()"></Button>
+
+        </StackLayout>
+    </ScrollView>
+
+</Page>

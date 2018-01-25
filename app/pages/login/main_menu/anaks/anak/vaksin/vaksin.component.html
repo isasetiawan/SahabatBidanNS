@@ -1,0 +1,20 @@
+<Page>
+    <ActionBar [title]="'Vaksinasi ' + anak.nama"></ActionBar>
+    <StackLayout>
+        <RadListView
+                [items]="vaksines"
+                pullToRefresh="true"
+                (pullToRefreshInitiated)="loadvaksin($event)"
+                selectedBehavior="Press"
+        >
+            <ng-template tkListItemTemplate let-item="item">
+                <CardView (tap)="viewvaksin(item)" class="card-list" radius="8">
+                    <StackLayout class="wrapper" orientaion="vertical" >
+                        <Label class="title" [text]="item.title + ' pada bulan ke-' + item.bulan "></Label>
+                        <Label class="desc" [text]="item.hasil ? (item.hasil.value ? 'Telah diberikan'  : 'Belum diberikan') : 'Belum diperiksa'"></Label>
+                    </StackLayout>
+                </CardView>
+            </ng-template>
+        </RadListView>
+    </StackLayout>
+</Page>

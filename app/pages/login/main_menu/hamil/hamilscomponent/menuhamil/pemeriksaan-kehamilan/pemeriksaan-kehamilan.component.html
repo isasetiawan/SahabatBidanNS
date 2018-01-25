@@ -1,0 +1,37 @@
+<StackLayout>
+
+    <ActionBar title="Pemeriksaan">
+    </ActionBar>
+
+    <GridLayout row="auto,*" >
+
+        <RadListView
+                [items]="pemeriksaans"
+                pullToRefresh="true"
+                (pullToRefreshInitiated)="load_pemeriksaans($event)"
+                selectedBehavior="Press"
+        >
+
+            <ng-template tkListItemTemplate let-item="item">
+
+                <CardView class="card-list" radius="8">
+                    <GridLayout columns="*,auto,auto,auto" class="wrapper" (tap)="edit_pemeriksaan(item)" orientation="horizontal">
+                        <StackLayout col="0" orientaion="vertical">
+                            <Label class="desc" text="Pemeriksaan pada"></Label>
+                            <Label class="title" [text]="item.tanggal_pemeriksaan"></Label>
+                        </StackLayout>
+
+                        <Image col="1" class="ic_action" (tap)="view_resume_pemeriksaan(item)" src="res://ic_assignment_black_24dp"></Image>
+                        <Image col="2" class="ic_action" (tap)="gotoTindakan(item)" src="res://ic_pan_tool_black_24dp"></Image>
+                        <Image col="3" class="ic_action" (tap)="delete_pemeriksaan(item)" src="res://ic_delete_black_48dp"></Image>
+
+                    </GridLayout>
+                </CardView>
+
+            </ng-template>
+
+        </RadListView>
+
+        <FAB:fab (tap)="add_pemeriksaan()" class="fab-button" row="1" rippleColor="#f1f1f1" icon="res://ic_add_white_24dp" ></FAB:fab>
+    </GridLayout>
+</StackLayout>

@@ -1,0 +1,16 @@
+.wrapper{
+    padding: 16dp;
+}
+
+.icon{
+    width: 50;
+    height: 50;
+    margin-right: 16dp;
+}
+
+.ic_action{
+    margin-left: 4dp;
+    margin-right: 4dp;
+    width: 24dp;
+    height: 24dp;
+}

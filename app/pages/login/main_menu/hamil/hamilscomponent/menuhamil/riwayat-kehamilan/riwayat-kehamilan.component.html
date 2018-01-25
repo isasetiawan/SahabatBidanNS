@@ -1,0 +1,87 @@
+<Page>
+    <ActionBar title="Riwayat Kehamilan">
+    </ActionBar>
+    <ScrollView>
+        <StackLayout padding="16">
+            <RadDataForm [source]="riwayat" >
+                <TKEntityProperty tkDataFormProperty name="id" hidden="true"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="kehamilan_id" hidden="true"></TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="hamil_ke" displayName="Hamil ke-"></TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="gerak_janin" displayName="Gerakan janin" [valuesProvider]="gerakan_janin">
+                    <TKPropertyEditor tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
+                </TKEntityProperty>
+
+
+                <TKEntityProperty tkDataFormProperty name="n_melahirkan" displayName="Jumlah melahirkan">
+                    <TKNonEmptyValidator tkEntityPropertyValidators  errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="jumlah_abortus" displayName="Jumlah abortus">
+                    <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="jarak_hamil" displayName="Jarak hamil">
+                    <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="normal_anak_ke" displayName="Melahirkan normal pada anak ke-">
+                    <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="sesar_anak_ke" displayName="Melahirkan sesar pada anak ke-">
+                    <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="vakum_anak_ke" displayName="Melahirkan vakum pada anak ke-">
+                    <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="prematur_anak_ke" displayName="Melahirkan prematur pada anak ke-">
+                    <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKPropertyGroup tkDataFormGroups collapsible="true" name="Penolong Persalinan" hidden="false">
+                    <TKEntityProperty tkPropertyGroupProperties name="penolong_persalinan_is_bidan" displayName="Bidan" [valuesProvider]="penolongChoides">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+                    <TKEntityProperty tkPropertyGroupProperties name="penolong_persalinan_is_dukun" displayName="Dukun" [valuesProvider]="penolongChoides">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+                    <TKEntityProperty tkPropertyGroupProperties name="penolong_persalinan_is_dokter" displayName="Dokter" [valuesProvider]="penolongChoides">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+                    <TKEntityProperty tkPropertyGroupProperties name="penolong_persalinan_is_lain" displayName="Lainnya" [valuesProvider]="penolongChoides">
+                        <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+                    </TKEntityProperty>
+                </TKPropertyGroup>
+
+                <TKEntityProperty tkDataFormProperty name="berat_anak_2_less" displayName="Berat badan anak kurang dari 2 Kg pada anak ke-">
+                    <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="berat_anak_2_to_3_on" displayName="Berat badan anak diantara 2 - 3 Kg pada anak ke-">
+                    <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkDataFormProperty name="berat_anak_4_more" displayName="Berat badan anak lebihi dari 4 Kg pada anak ke-">
+                    <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
+                </TKEntityProperty>
+
+            </RadDataForm>
+            <Button text="Simpan" (tap)="saverkeham()"></Button>
+        </StackLayout>
+    </ScrollView>
+
+</Page>

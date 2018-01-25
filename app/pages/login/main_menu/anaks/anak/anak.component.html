@@ -1,0 +1,79 @@
+<Page>
+  <ActionBar [title]="anak.nama">
+  </ActionBar>
+  <ScrollView>
+    <StackLayout class="content">
+
+        <RadDataForm tkExampleTitle tkToggleNavButton [source]="anak" isReadOnly="true">
+
+            <TKEntityProperty tkDataFormProperty name="id" hidden="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="status" hidden="true"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="buku_kia" hidden="true"></TKEntityProperty>
+
+
+            <TKEntityProperty tkDataFormProperty name="orangtua_id" hidden="true"></TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="nama" displayName="Nama Anak">
+                <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
+            </TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="gender" displayName="Jenis Kelamin"  valuesProvider="L, P">
+                <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+            </TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="birthdate" displayName="Tanggal Lahir">
+                <TKPropertyEditor tkEntityPropertyEditor type="DatePicker"></TKPropertyEditor>
+            </TKEntityProperty>
+
+        </RadDataForm>
+
+        <ScrollView class="sub-menu">
+          <StackLayout>
+
+              <CardView class="card-list" margin="8" radius="8">
+                  <StackLayout orientation="horizontal" padding="16dp" (tap)="goToTumbuh()" >
+                      <Image src="res://tumbuh"></Image>
+                      <StackLayout orientation="vertical">
+                            <Label text="Pertumbuhan" class="title" ></Label>
+                            <Label [text]="'Data tinggi dan berat badan '+anak.nama+' pada umur tertentu beserta analisanya'" textWrap="true" class="desc"></Label>
+                      </StackLayout>
+                  </StackLayout>
+              </CardView>
+
+              <CardView class="card-list" margin="8" radius="8">
+                    <StackLayout orientation="horizontal" padding="16dp" (tap)="goToKembang()">
+                        <Image src="res://kembang"></Image>
+                        <StackLayout orientation="vertical">
+                                <Label text="Perkembangan" class="title" ></Label>
+                                <Label [text]="'Data mengenai perkembangan '+anak.nama+' pada umur tertentu, beserta analisanya'" textWrap="true" class="desc"></Label>
+                        </StackLayout>
+                    </StackLayout>
+              </CardView>
+
+              <CardView class="card-list" margin="8" radius="8">
+                  <StackLayout orientation="horizontal" padding="16dp" (tap)="goToVaksin()">
+                      <Image src="res://vaccines"></Image>
+                      <StackLayout orientation="vertical">
+                            <Label text="Vaksinasi" class="title" ></Label>
+                            <Label [text]="'Data pemberian vaksin terhadap ' + anak.nama + ' beserta tanggalnya'" textWrap="true" class="desc"></Label>
+                      </StackLayout>
+                  </StackLayout>
+              </CardView>
+
+
+              <CardView class="card-list" margin="8" radius="8">
+                  <StackLayout orientation="horizontal" padding="16dp" (tap)="goToHealthy()">
+                      <Image src="res://kesehatan"></Image>
+                      <StackLayout orientation="vertical">
+                            <Label text="Kesehatan" class="title" ></Label>
+                            <Label [text]="'Data kesehatan '+anak.nama+' pada umur tertentu'" textWrap="true" class="desc"></Label>
+                      </StackLayout>
+                  </StackLayout>
+              </CardView>
+
+        </StackLayout>
+      </ScrollView>
+
+    </StackLayout>
+  </ScrollView>
+</Page>

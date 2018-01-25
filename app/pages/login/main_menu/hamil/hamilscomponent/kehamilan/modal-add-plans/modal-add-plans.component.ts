@@ -87,11 +87,17 @@ export class ModalAddPlansComponent implements OnInit {
         console.log(JSON.stringify(this.rencana));
         if (this.isedit) {
             this.serv.edit(this.id_kehamilan,this.rencana.id,this.rencana).subscribe(
-                res => Toast.makeText(res.message).show()
+                res => {
+                    Toast.makeText(res.message).show();
+                    this.params.closeCallback();
+                }
             );
         } else {
             this.serv.addplan(this.id_kehamilan, this.rencana).subscribe(
-                res => Toast.makeText(res.message).show()
+                res => {
+                    Toast.makeText(res.message).show();
+                    this.params.closeCallback();
+                }
             );
         }
     }

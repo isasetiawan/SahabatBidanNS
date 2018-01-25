@@ -14,3 +14,10 @@ Button {
     margin-bottom: 5;
     color: #fafafa;
 }
+
+.login_page{
+    padding-left: 48dp;
+    padding-right: 48dp;
+    padding-bottom: 69dp;
+
+}

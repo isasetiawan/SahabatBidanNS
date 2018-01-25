@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {OrangtuaService} from "../orangtua.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, NavigationExtras, Router} from "@angular/router";
 
 @Component({
     selector:"ns-menu",
@@ -19,6 +19,7 @@ export class AnaksComponent {
     constructor(
         private ortuServ:OrangtuaService,
         private actRoute:ActivatedRoute,
+        private router:Router
     ){
         this.anaks = [];
         this.actRoute.queryParams.subscribe(
@@ -36,6 +37,13 @@ export class AnaksComponent {
                 if (args !== null) args.object.notifyPullToRefreshFinished();
             }
         )
+    }
+
+    goto_anak(item){
+        let navextra:NavigationExtras = {
+            queryParams: item
+        };
+        this.router.navigate(["anak"],navextra)
     }
 
 }

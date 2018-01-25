@@ -1,0 +1,78 @@
+<Page>
+    <ActionBar [title]="'Pertumbuhan '+anak.nama"></ActionBar>
+
+    <TabView selectedColor="#FFF">
+
+        <StackLayout margin="32dp" *tabItem="{title: 'Data BB TB'}">
+            <RadListView [items]="pertumbuhan" pullToRefresh="true" (pullToRefreshInitiated)="loadtumbuh($event)">
+
+                <ng-template let-i="index" tkListItemTemplate let-item="item">
+
+                    <CardView class="card-list" radius="8">
+                        <GridLayout (tap)="showModal(item,i)" columns="*,auto,auto" padding="16">
+                            <StackLayout col="0">
+                                <Label class="title" class="title" [text]="item.detail_tumbuh"></Label>
+                                <Label class="desc" class="desc" [text]="item.result !== null ? 'Diperiksa pada '+ showDate(item.result.tanggal) : 'belum diperiksa' "></Label>
+                                <Label class="desc" class="desc" [text]="item.result?.bidan != null ? 'divalidasi oleh ' + item.result.bidan.nama: 'belum divalidasi' "></Label>
+                                <Label class="desc" class="desc" [text]="item.result !== null ? item.result.result : '' "></Label>
+                                <Label class="desc" class="desc" [text]="item.result !== null ? item.result.gizi : '' "></Label>
+                            </StackLayout>
+                            <Label class="wh-label" col="1" class="desc" class="desc" [text]="item.result !== null ? item.result.berat+' Kg | '+item.result.tinggi+' Cm' : '' "></Label>
+                        </GridLayout>
+                    </CardView>
+
+                </ng-template>
+
+            </RadListView>
+        </StackLayout>
+
+        <StackLayout padding="16" *tabItem="{title: 'Grafik BB/U' }">
+            <RadCartesianChart tkExampleTitle tkToggleNavButton>
+                <CategoricalAxis tkCartesianHorizontalAxis></CategoricalAxis>
+                <!-- >> chart-line-axis -->
+                <LinearAxis tkCartesianVerticalAxis></LinearAxis>
+                <!-- << chart-line-axis -->
+                <LineSeries showLabels="true" tkCartesianSeries [items]="bbus" categoryProperty="usia" valueProperty="berat" [legendTitle]="'Berat '+anak.nama"></LineSeries>
+                <LineSeries tkCartesianSeries [items]="s_bbu" categoryProperty="umur" valueProperty="buruk" legendTitle="Buruk"></LineSeries>
+                <LineSeries tkCartesianSeries [items]="s_bbu" categoryProperty="umur" valueProperty="baik" legendTitle="Baik"></LineSeries>
+                <LineSeries tkCartesianSeries [items]="s_bbu" categoryProperty="umur" valueProperty="kurang" legendTitle="Kurang"></LineSeries>
+                <!--legend-->
+                <RadLegendView tkCartesianLegend position="Bottom" title="Keterangan" enableSelection="true" ></RadLegendView>
+            </RadCartesianChart>
+        </StackLayout>
+
+        <StackLayout padding="16" *tabItem="{title: 'Grafik TB/U' }">
+            <RadCartesianChart tkExampleTitle tkToggleNavButton seriesSelectionMode="Single">
+                <CategoricalAxis tkCartesianHorizontalAxis></CategoricalAxis>
+                <LinearAxis tkCartesianVerticalAxis></LinearAxis>
+
+                <LineSeries showLabels="true" tkCartesianSeries [items]="tbus" categoryProperty="usia" valueProperty="tinggi" [legendTitle]="'Tinggi '+ anak.nama"></LineSeries>
+                <LineSeries tkCartesianSeries [items]="s_tbu" categoryProperty="umur" valueProperty="pendek" legendTitle="Pendek"></LineSeries>
+                <LineSeries tkCartesianSeries [items]="s_tbu" categoryProperty="umur" valueProperty="sangat_pendek" legendTitle="Sangat Pendek"></LineSeries>
+                <LineSeries tkCartesianSeries [items]="s_tbu" categoryProperty="umur" valueProperty="normal" legendTitle="Normal"></LineSeries>
+                <!--legend-->
+                <RadLegendView tkCartesianLegend position="Bottom" title="Keterangan" enableSelection="true" ></RadLegendView>
+            </RadCartesianChart>
+        </StackLayout>
+
+        <StackLayout padding="16" *tabItem="{title: 'Grafik TB/BB' }">
+            <RadCartesianChart tkExampleTitle tkToggleNavButton seriesSelectionMode="Single">
+                <CategoricalAxis tkCartesianHorizontalAxis></CategoricalAxis>
+                <LinearAxis tkCartesianVerticalAxis></LinearAxis>
+
+                <LineSeries showLabels="true" tkCartesianSeries [items]="tbbbs" categoryProperty="tinggi" valueProperty="berat" [legendTitle]="'Berat '+anak.nama "></LineSeries>
+                <LineSeries tkCartesianSeries [items]="s_tbbbs" categoryProperty="tinggi_badan" valueProperty="sangat_kurus" legendTitle="Sangat Kurus"></LineSeries>
+                <LineSeries tkCartesianSeries [items]="s_tbbbs" categoryProperty="tinggi_badan" valueProperty="kurus" legendTitle="Kurus"></LineSeries>
+                <LineSeries tkCartesianSeries [items]="s_tbbbs" categoryProperty="tinggi_badan" valueProperty="normal" legendTitle="Normal"></LineSeries>
+                <LineSeries tkCartesianSeries [items]="s_tbbbs" categoryProperty="tinggi_badan" valueProperty="gemuk" legendTitle="Gemuk"></LineSeries>
+                <LineSeries tkCartesianSeries [items]="s_tbbbs" categoryProperty="tinggi_badan" valueProperty="sangat_gemuk" legendTitle="Sangat Gemuk"></LineSeries>
+
+                <!--legend-->
+                <RadLegendView tkCartesianLegend position="Bottom" title="Keterangan" enableSelection="true" ></RadLegendView>
+            </RadCartesianChart>
+        </StackLayout>
+
+    </TabView>
+
+</Page>
+

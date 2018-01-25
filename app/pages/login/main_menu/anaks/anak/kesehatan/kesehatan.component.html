@@ -1,0 +1,22 @@
+<Page>
+    <ActionBar [title]="'Kesehatan ' + anak.nama"></ActionBar>
+    <StackLayout>
+        <RadListView
+                padding="8"
+                [items]="kesehatans"
+                pullToRefresh="true"
+                (pullToRefreshInitiated)="loadkesehtan($event)"
+                selectedBehavior="Press"
+        >
+            <ng-template tkListItemTemplate let-item="item">
+                <CardView (tap)="view(item)" class="card-list" radius="8">
+                    <StackLayout class="wrapper" orientaion="vertical" >
+                        <Label class="title" [text]="'Pada umur '+item.detail_tumbuh"></Label>
+                        <Label textWrap="true" class="desc" [text]="item.result !== null ? anak.nama + ' dinyatakan ' + statuses[item.result.status] + (item.result.bidan !== null ? ' oleh ' + item.result.bidan.nama : '(belum divalidasi)') : 'Belum diperiksa'"></Label>
+                    </StackLayout>
+                </CardView>
+            </ng-template>
+        </RadListView>
+
+    </StackLayout>
+</Page>

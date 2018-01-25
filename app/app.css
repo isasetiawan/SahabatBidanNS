@@ -43,9 +43,17 @@ Page{
     font-size: 14pt;
 }
 
+.dropdown {
+    padding: 16dp;
+    font-size: 16pt;
+    text-align: left;
+
+}
+
 .card-list{
     margin-top: 12dp;
     margin-bottom: 4dp;
     margin-left: 16dp;
     margin-right: 16dp;
 }
+

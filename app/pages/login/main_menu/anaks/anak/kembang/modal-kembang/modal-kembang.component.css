@@ -1,0 +1,10 @@
+.wrapper{
+    padding: 16;
+    border-bottom-width: 1;
+    border-bottom-color:#E0E0E0;
+}
+
+.validated {
+    background-color: #2D9CDB;
+    color: #fafafa;
+}
