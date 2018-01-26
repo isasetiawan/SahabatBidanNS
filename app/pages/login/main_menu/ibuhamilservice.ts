@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
-import {Config} from "../../../utils/config";
 import {HttpClient} from "@angular/common/http";
+import {Config} from "../../../utils/config";
 import {LoadingIndicator} from "nativescript-loading-indicator";
 
 @Injectable()
@@ -13,10 +13,12 @@ export class Ibuhamilservice {
     }
 
     getOrangTuas(){
+        this.loadingindicator.show(Config.progress_dialog_options);
         return this.http.get(
             Config.urlAPI+'/hamil/orangtua',
             {headers:Config.createHeaders()}
         )
+            .finally(()=>this.loadingindicator.hide())
             .catch(Config.errorCatcher)
     }
 
@@ -27,8 +29,8 @@ export class Ibuhamilservice {
             args,
             {headers:Config.createHeaders()}
         )
-            .catch(Config.errorCatcher)
             .finally(()=>this.loadingindicator.hide())
+            .catch(Config.errorCatcher)
     }
 
     unpair(args:UnpairArgs){
@@ -38,8 +40,8 @@ export class Ibuhamilservice {
             args,
             {headers:Config.createHeaders()},
         )
-            .catch(Config.errorCatcher)
             .finally(()=>this.loadingindicator.hide())
+            .catch(Config.errorCatcher)
     }
 
     getPregnancies(idorangtua:number){
@@ -48,8 +50,8 @@ export class Ibuhamilservice {
             Config.urlAPI+'/hamil/'+idorangtua+'/all',
             {headers:Config.createHeaders()}
         )
-            .catch(Config.errorCatcher)
             .finally(()=>this.loadingindicator.hide())
+            .catch(Config.errorCatcher)
     }
 
     addPregnancies(idorangtua:number, args:any){
@@ -59,8 +61,8 @@ export class Ibuhamilservice {
             args,
             {headers:Config.createHeaders()}
         )
-            .catch(Config.errorCatcher)
             .finally(()=>this.loadingindicator.hide())
+            .catch(Config.errorCatcher)
     }
 
     editPregnancies(idorangtua:number, idhamil:number, args:any){
@@ -70,8 +72,8 @@ export class Ibuhamilservice {
             args,
             {headers:Config.createHeaders()}
         )
-            .catch(Config.errorCatcher)
             .finally(()=>this.loadingindicator.hide())
+            .catch(Config.errorCatcher)
     }
 
     deletePreg(hamil_id:number){
@@ -80,9 +82,10 @@ export class Ibuhamilservice {
             Config.urlAPI+'/hamil/0/'+hamil_id,
             {headers:Config.createHeaders()}
         )
-            .catch(Config.errorCatcher)
             .finally(()=>this.loadingindicator.hide())
+            .catch(Config.errorCatcher)
     }
+
 }
 
 interface PairArgs{

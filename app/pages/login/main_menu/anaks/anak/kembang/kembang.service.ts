@@ -1,10 +1,8 @@
-import {Injectable} from "@angular/core";
-import {Http, Headers} from "@angular/http";
-import {Anak} from "../../anak";
-import {Observable} from "rxjs/Observable";
 import {Config} from "../../../../../../utils/config";
 import {LoadingIndicator} from "nativescript-loading-indicator";
 import {HttpClient} from "@angular/common/http";
+import {Anak} from "../../anak";
+import {Injectable} from "@angular/core";
 
 @Injectable()
 export class KembangService {
@@ -37,4 +35,5 @@ export class KembangService {
             .finally(()=>this.loadingindicator.hide())
 
     }
+
 }

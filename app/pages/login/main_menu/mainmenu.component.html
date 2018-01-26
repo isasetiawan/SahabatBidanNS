@@ -23,7 +23,7 @@
                                 <Image col="0" class="icon" src='res://parent'></Image>
                                 <StackLayout col="1" orientaion="vertical" >
                                     <Label class="title" [text]="item.orangtua.ibu_nama"></Label>
-                                    <Label class="desc" [text]="item.orangtua.ibu_alamat"></Label>
+                                    <Label class="desc" [text]="'Istri dari '+item.orangtua.ayah_nama"></Label>
                                 </StackLayout>
                                 <Image col="2" class="ic_action" src="res://ic_delete_black_48dp" (tap)="unpairbumil(item.id)"></Image>
                             </GridLayout>
@@ -53,7 +53,7 @@
                                 <Image col="0" class="icon" src='res://parent'></Image>
                                 <StackLayout col="1" orientaion="vertical" >
                                     <Label class="title" [text]="item.orangtua.ibu_nama"></Label>
-                                    <Label class="desc" [text]="item.orangtua.ibu_alamat"></Label>
+                                    <Label class="desc" [text]="'Istri dari '+item.orangtua.ayah_nama"></Label>
                                 </StackLayout>
                                 <Image col="2" class="ic_action" src="res://ic_delete_black_48dp" (tap)="unpairortu(item.id)"></Image>
                             </GridLayout>

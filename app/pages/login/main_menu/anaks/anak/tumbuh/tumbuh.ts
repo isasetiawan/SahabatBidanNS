@@ -1,9 +1,11 @@
+
+import moment = require("moment");
+
 export class Tumbuh {
     id: number;
-    tumbuh_id: number;
-    bidan_id: number ;
-    tanggal: string = new Date().toISOString().substring(0, 10);
-    tempat_pemeriksaan: string = "";
+    tumbuh_id: string = "";
+    bidan_id: string = "";
+    tanggal: string = moment().toString();
     berat: string = "";
     tinggi: string = "";
     hasil: string = "";

@@ -6,7 +6,8 @@ let appSettings = require("application-settings");
 
 
 export class Config {
-    static urlAPI = "http://10.0.2.2:8000/api";
+    // static urlAPI = "http://10.0.2.2:8000/api";
+    static urlAPI = "http://dev.bidan.sahabatbundaku.org/api";
     static keyAPI = "fEZYTJ8L2K8y94fmJ8c94stx6plDmL62";
 
     static progress_dialog_options = {

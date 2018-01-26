@@ -62,11 +62,6 @@ export class AuthInterceptorService implements HttpInterceptor{
             })
     }
 
-    // logout(){
-    //     this.routerExt.navigate(['/login'],{ clearHistory: true });
-    // }
-    //
-    //
     changeheader(request:HttpRequest<any>){
         let saved_token = appSettings.getString("token");
 
