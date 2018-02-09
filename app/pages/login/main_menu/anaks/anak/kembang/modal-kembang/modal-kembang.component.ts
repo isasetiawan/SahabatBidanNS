@@ -31,7 +31,7 @@ export class ModalKembangComponent implements OnInit {
     }
 
     validate(){
-        this.serv.validate(this.kembang.hasil.id).subscribe(
+        this.serv. validate(this.kembang.hasil.id).subscribe(
             res => {
                 Toast.makeText(res.message).show();
                 this.params.closeCallback()

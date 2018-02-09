@@ -29,6 +29,7 @@ export class KembangService {
         this.loadingindicator.show(Config.progress_dialog_options);
         return this.http.put(
             Config.urlAPI+"/orangtua/0/anak/0/kembang/"+id_kembang+"/validate",
+            {},
             {headers:Config.createHeaders()}
         )
             .catch(Config.errorCatcher)

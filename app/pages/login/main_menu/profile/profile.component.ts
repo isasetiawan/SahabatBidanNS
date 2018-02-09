@@ -23,11 +23,11 @@ export class ProfileComponent implements OnInit{
     kecamatans:any[];
     selkec:string;
 
-    puskesmases:any[];
-    selpus:string;
-
     kelurahan:any[];
     selkelu:string;
+
+    puskesmases:any[];
+    selpus:string;
 
     whatsgoingon = err => {
         Toast.makeText(err.json().message);

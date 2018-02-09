@@ -22,6 +22,8 @@ export class RiwayatKesehatanComponent implements OnInit {
         {key:0, label:"Tidak"},
     ];
 
+    r_kontrasepsi = ["Tidak Ada","AKDR/IUD","Suntik","Implan/Susuk"];
+
     constructor(
         private actRoute:ActivatedRoute,
         private route:Router,
