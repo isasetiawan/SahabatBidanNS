@@ -36,6 +36,9 @@ export class ModalAddPlansComponent implements OnInit {
         {key:6, label:"Rumah Sakit Ibu Anak"},
         {key:7, label:"Rumah Sakit"},
         {key:8, label:"Rumah Sakit Odha"},
+        {key:9, label:"Praktek mandiri"},
+        {key:10, label:"Klinik"},
+
     ];
 
     pendampings = [

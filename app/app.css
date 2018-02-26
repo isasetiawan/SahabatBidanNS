@@ -44,10 +44,16 @@ Page{
 }
 
 .dropdown {
-    padding: 16dp;
-    font-size: 16pt;
+    padding: 8dp;
+    font-size: 8pt;
     text-align: left;
+    border-bottom: 2 dp #9e9e9e;
+}
 
+.dropdown-label {
+    padding-left: 8dp;
+    margin-top: 16dp;
+    margin-bottom: 8dp;
 }
 
 .card-list{

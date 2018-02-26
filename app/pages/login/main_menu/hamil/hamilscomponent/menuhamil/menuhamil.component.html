@@ -1,91 +1,131 @@
 <Page>
     <ActionBar title="Kehamilan" ></ActionBar>
 
-    <ScrollView margin="8dp">
-        <StackLayout>
-
-            <CardView class="card-list" margin="8" radius="8">
-                <StackLayout (tap)="gotosomewhere('riwayat_kehamilan')" orientation="horizontal" padding="16dp" >
-                    <Image src="res://riwayat_kehamilan"></Image>
-                    <StackLayout orientation="vertical">
-                        <Label text="Riwayat Kehamilan" class="title" ></Label>
-                        <Label text="Data mengenai kehamilan sebelumnya yang pernah dialami pasien" textWrap="true" class="desc"></Label>
-                    </StackLayout>
-                </StackLayout>
-            </CardView>
-
-            <CardView class="card-list" margin="8" radius="8">
-                <StackLayout (tap)="gotosomewhere('riwayat_kesehatan')" orientation="horizontal" padding="16dp" >
-                    <Image src="res://riwayat_kesehatan"></Image>
-                    <StackLayout orientation="vertical">
-                        <Label text="Riwayat Kesehatan" class="title" ></Label>
-                        <Label text="Data mengenai kesehatan pasien, seperti penyakit yang pernah diidap" textWrap="true" class="desc"></Label>
-                    </StackLayout>
-                </StackLayout>
-            </CardView>
-
-            <CardView class="card-list" margin="8" radius="8">
-                <StackLayout (tap)="gotosomewhere('keluhan')" orientation="horizontal" padding="16dp" >
-                    <Image src="res://keluhan"></Image>
-                    <StackLayout orientation="vertical">
-                        <Label text="Keluhan" class="title" ></Label>
-                        <Label text="Data mengenai keluhan yang dialami pasien semasa kehamilan mulai dari trimester 1 hingga trimester 3" textWrap="true" class="desc"></Label>
-                    </StackLayout>
-                </StackLayout>
-            </CardView>
-
-            <CardView class="card-list" margin="8" radius="8">
-                <StackLayout (tap)="gotosomewhere('pemeriksaan_kehamilan')" orientation="horizontal" padding="16dp" >
-                    <Image src="res://stetoshcope"></Image>
-                    <StackLayout orientation="vertical">
-                        <Label text="Pemeriksaan" class="title" ></Label>
-                        <Label text="Data mengenai kunjungan pemeriksaan pasien semasa kehamilan" textWrap="true" class="desc"></Label>
-                    </StackLayout>
-                </StackLayout>
-            </CardView>
-
-            <CardView class="card-list" margin="8" radius="8">
-                <StackLayout (tap)="gotosomewhere('rencana_persalinan')" orientation="horizontal" padding="16dp" >
-                    <Image src="res://plan"></Image>
-                    <StackLayout orientation="vertical">
-                        <Label text="Rencana Persalinan" class="title" ></Label>
-                        <Label text="Data mengenai persiapan rencana persalinan" textWrap="true" class="desc"></Label>
-                    </StackLayout>
-                </StackLayout>
-            </CardView>
-
-            <CardView class="card-list" margin="8" radius="8">
-                <StackLayout (tap)="gotosomewhere('persalinan')" orientation="horizontal" padding="16dp" >
-                    <Image src="res://persalinan"></Image>
-                    <StackLayout orientation="vertical">
-                        <Label text="Persalinan" class="title" ></Label>
-                        <Label text="Data mengenai persalinan yang dialami oleh pasien" textWrap="true" class="desc"></Label>
-                    </StackLayout>
-                </StackLayout>
-            </CardView>
-
-            <CardView (tap)="gotosomewhere('melahirkan')" class="card-list" margin="8" radius="8">
-                <StackLayout orientation="horizontal" padding="16dp" >
-                    <Image src="res://birth"></Image>
-                    <StackLayout orientation="vertical">
-                        <Label text="Melahirkan" class="title" ></Label>
-                        <Label text="Data mengenai kelahiran bayi dari pasien" textWrap="true" class="desc"></Label>
-                    </StackLayout>
-                </StackLayout>
-            </CardView>
-
-            <CardView class="card-list" margin="8" radius="8">
-                <StackLayout (tap)="gotosomewhere('nifases')" orientation="horizontal" padding="16dp" >
-                    <Image src="res://nifas"></Image>
-                    <StackLayout orientation="vertical">
-                        <Label text="Perawatan Nifas" class="title" ></Label>
-                        <Label text="Data mengenai kunjungan perawatan pasca melahirkan atau nifas" textWrap="true" class="desc"></Label>
-                    </StackLayout>
-                </StackLayout>
-            </CardView>
-
-
-        </StackLayout>
-
-    </ScrollView>
 </Page>
+
+
+    <TabView>
+
+        <ScrollView *tabItem="{title: 'Data'}">
+
+            <StackLayout margin="16dp">
+
+                <!--<Label class="dropdown-label" text="Hari pertama haid terakhir"></Label>-->
+                <!--<DatePicker [(ngModel)]="kehamilan.HPHT"></DatePicker>-->
+
+                <TextInputLayout hint="Hari pertama haid terakhir" hintAnimationEnabled="true">
+                    <TextField (tap)="selectdate()" [text]="kehamilan.HPHT" keyboardType="datetime"></TextField>
+                </TextInputLayout>
+
+                <TextInputLayout hint="Kehamilan ke-" hintAnimationEnabled="true">
+                    <TextField [(ngModel)]="kehamilan.hamil_ke" keyboardType="number"></TextField>
+                </TextInputLayout>
+
+                <CheckBox text="Drop out" [(ngModel)]="kehamilan.is_dropout"></CheckBox>
+
+                <Label class="dropdown-label" text="Buku KIA"></Label>
+                <DropDown
+                        [items]="['','Tidak mendapat buku','Mendapat buku saja','Medanpat buku KIA dengan stiker']"
+                        style="font-size: 16pt"
+                        class="dropdown"
+                        [selectedIndex] = "kehamilan.kia"
+                        (selectedIndexChanged)="kehamilan.kia = $event.newIndex"
+                ></DropDown>
+
+                <Button (tap)="update()" text="Ubah"> </Button>
+
+            </StackLayout>
+
+        </ScrollView>
+
+        <ScrollView margin="8dp" *tabItem="{title: 'Menu'}">
+            <StackLayout>
+
+                <CardView class="card-list"  radius="8">
+                    <StackLayout (tap)="gotosomewhere('riwayat_kehamilan')" orientation="horizontal" padding="16dp" >
+                        <Image src="res://riwayat_kehamilan"></Image>
+                        <StackLayout orientation="vertical">
+                            <Label text="Riwayat Kehamilan" class="title" ></Label>
+                            <Label text="Data mengenai kehamilan sebelumnya yang pernah dialami pasien" textWrap="true" class="desc"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </CardView>
+
+                <CardView class="card-list"  radius="8">
+                    <StackLayout (tap)="gotosomewhere('riwayat_kesehatan')" orientation="horizontal" padding="16dp" >
+                        <Image src="res://riwayat_kesehatan"></Image>
+                        <StackLayout orientation="vertical">
+                            <Label text="Riwayat Kesehatan" class="title" ></Label>
+                            <Label text="Data mengenai kesehatan pasien, seperti penyakit yang pernah diidap" textWrap="true" class="desc"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </CardView>
+
+                <CardView class="card-list"  radius="8">
+                    <StackLayout (tap)="gotosomewhere('keluhan')" orientation="horizontal" padding="16dp" >
+                        <Image src="res://keluhan"></Image>
+                        <StackLayout orientation="vertical">
+                            <Label text="Keluhan" class="title" ></Label>
+                            <Label text="Data mengenai keluhan yang dialami pasien semasa kehamilan mulai dari trimester 1 hingga trimester 3" textWrap="true" class="desc"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </CardView>
+
+                <CardView class="card-list"  radius="8">
+                    <StackLayout (tap)="gotosomewhere('pemeriksaan_kehamilan')" orientation="horizontal" padding="16dp" >
+                        <Image src="res://stetoshcope"></Image>
+                        <StackLayout orientation="vertical">
+                            <Label text="Pemeriksaan" class="title" ></Label>
+                            <Label text="Data mengenai kunjungan pemeriksaan pasien semasa kehamilan" textWrap="true" class="desc"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </CardView>
+
+                <CardView class="card-list"  radius="8">
+                    <StackLayout (tap)="gotosomewhere('rencana_persalinan')" orientation="horizontal" padding="16dp" >
+                        <Image src="res://plan"></Image>
+                        <StackLayout orientation="vertical">
+                            <Label text="Rencana Persalinan" class="title" ></Label>
+                            <Label text="Data mengenai persiapan rencana persalinan" textWrap="true" class="desc"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </CardView>
+
+                <CardView class="card-list"  radius="8">
+                    <StackLayout (tap)="gotosomewhere('persalinan')" orientation="horizontal" padding="16dp" >
+                        <Image src="res://persalinan"></Image>
+                        <StackLayout orientation="vertical">
+                            <Label text="Persalinan" class="title" ></Label>
+                            <Label text="Data mengenai persalinan yang dialami oleh pasien" textWrap="true" class="desc"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </CardView>
+
+                <CardView (tap)="gotosomewhere('melahirkan')" class="card-list"  radius="8">
+                    <StackLayout orientation="horizontal" padding="16dp" >
+                        <Image src="res://birth"></Image>
+                        <StackLayout orientation="vertical">
+                            <Label text="Melahirkan" class="title" ></Label>
+                            <Label text="Data mengenai kelahiran bayi dari pasien" textWrap="true" class="desc"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </CardView>
+
+                <CardView class="card-list"  radius="8">
+                    <StackLayout (tap)="gotosomewhere('nifases')" orientation="horizontal" padding="16dp" >
+                        <Image src="res://nifas"></Image>
+                        <StackLayout orientation="vertical">
+                            <Label text="Perawatan Nifas" class="title" ></Label>
+                            <Label text="Data mengenai kunjungan perawatan pasca melahirkan atau nifas" textWrap="true" class="desc"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </CardView>
+
+
+            </StackLayout>
+
+        </ScrollView>
+
+    </TabView>
+
+

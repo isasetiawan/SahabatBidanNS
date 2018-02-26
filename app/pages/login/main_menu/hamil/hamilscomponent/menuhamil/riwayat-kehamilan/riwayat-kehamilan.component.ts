@@ -50,6 +50,7 @@ export class RiwayatKehamilanComponent implements OnInit {
         this.riwkserv.getRKehamilan(this.id_kehamilan).subscribe(
             res => {
                 this.riwayat = res.content;
+                console.log(`ini lhoo ${JSON.stringify(this.riwayat)}`)
             }
         )
     }

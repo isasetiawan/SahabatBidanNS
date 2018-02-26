@@ -24,29 +24,29 @@
                     <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
                 </TKEntityProperty>
 
-                <TKEntityProperty tkDataFormProperty name="jarak_hamil" displayName="Jarak hamil">
+                <TKEntityProperty tkDataFormProperty name="jarak_hamil" displayName="Jarak kehamilan sebelumnya dalam bulan">
                     <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
                     <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
                 </TKEntityProperty>
 
                 <TKEntityProperty tkDataFormProperty name="normal_anak_ke" displayName="Melahirkan normal pada anak ke-">
-                    <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
-                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
+                    <TKRegExValidator tkEntityPropertyValidators regEx="^[0-9]+(,[0-9]+)*$" errorMessage="Pisahkan angka denga koma"></TKRegExValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
                 </TKEntityProperty>
 
                 <TKEntityProperty tkDataFormProperty name="sesar_anak_ke" displayName="Melahirkan sesar pada anak ke-">
-                    <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
-                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
+                    <TKRegExValidator tkEntityPropertyValidators regEx="^[0-9]+(,[0-9]+)*$" errorMessage="Pisahkan angka denga koma"></TKRegExValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
                 </TKEntityProperty>
 
                 <TKEntityProperty tkDataFormProperty name="vakum_anak_ke" displayName="Melahirkan vakum pada anak ke-">
-                    <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
-                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
+                    <TKRegExValidator tkEntityPropertyValidators regEx="^[0-9]+(,[0-9]+)*$" errorMessage="Pisahkan angka denga koma"></TKRegExValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
                 </TKEntityProperty>
 
                 <TKEntityProperty tkDataFormProperty name="prematur_anak_ke" displayName="Melahirkan prematur pada anak ke-">
-                    <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
-                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
+                    <TKRegExValidator tkEntityPropertyValidators regEx="^[0-9]+(,[0-9]+)*$" errorMessage="Pisahkan angka denga koma"></TKRegExValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
                 </TKEntityProperty>
 
                 <TKPropertyGroup tkDataFormGroups collapsible="true" name="Penolong Persalinan" hidden="false">
@@ -64,19 +64,19 @@
                     </TKEntityProperty>
                 </TKPropertyGroup>
 
-                <TKEntityProperty tkDataFormProperty name="berat_anak_2_less" displayName="Berat badan anak kurang dari 2 Kg pada anak ke-">
-                    <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
-                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
+                <TKEntityProperty tkDataFormProperty name="berat_anak_2_less" displayName="Anak keberapa saja yang berat badannya kurang dari 2.5 Kg">
+                    <TKRegExValidator tkEntityPropertyValidators regEx="^[0-9]+(,[0-9]+)*$" errorMessage="Pisahkan angka denga koma"></TKRegExValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
                 </TKEntityProperty>
 
-                <TKEntityProperty tkDataFormProperty name="berat_anak_2_to_3_on" displayName="Berat badan anak diantara 2 - 3 Kg pada anak ke-">
-                    <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
-                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
+                <TKEntityProperty tkDataFormProperty name="berat_anak_2_to_3_on" displayName="Anak keberapa saja yang berat badannya diantara 2.5 Kg dan 4 Kg">
+                    <TKRegExValidator tkEntityPropertyValidators regEx="^[0-9]+(,[0-9]+)*$" errorMessage="Pisahkan angka denga koma"></TKRegExValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
                 </TKEntityProperty>
 
-                <TKEntityProperty tkDataFormProperty name="berat_anak_4_more" displayName="Berat badan anak lebihi dari 4 Kg pada anak ke-">
-                    <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
-                    <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
+                <TKEntityProperty tkDataFormProperty name="berat_anak_4_more" displayName="Anak keberapa saja yang berat badannya lebih dari 4 Kg">
+                    <TKRegExValidator tkEntityPropertyValidators regEx="^[0-9]+(,[0-9]+)*$" errorMessage="Pisahkan angka denga koma"></TKRegExValidator>
+                    <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
                 </TKEntityProperty>
 
             </RadDataForm>

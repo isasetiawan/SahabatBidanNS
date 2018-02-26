@@ -30,6 +30,8 @@ export class PemeriksaanComponent implements OnInit {
 
     pone = [ { key: 0, label: '-' }, { key: 1, label: '+' } ];
 
+    react = [ { key: 0, label: 'non-reaktif' }, { key: 1, label: 'reaktif' } ];
+
     proteinurine = ["Tidak Diperiksa","Negatif","+1","+2","Lebih dari +2 "];
 
     glukosa = ["Tidak diperiksa","Reduksi +","Reduksi -"];
@@ -42,20 +44,35 @@ export class PemeriksaanComponent implements OnInit {
 
     komplikasi = [
         { key: 0, label: 'HDK' },
-        { key: 1, label: 'abortus' },
-        { key: 2, label: 'perdarahan' },
-        { key: 3, label: 'infeksi' },
+        { key: 1, label: 'Abortus' },
+        { key: 2, label: 'Perdarahan' },
+        { key: 3, label: 'Infeksi' },
         { key: 4, label: 'KPD' },
-        { key: 5, label: 'lainnya' },
-        { key: 6, label: 'tidak ada' } ];
+        { key: 7, label: 'Sungsang' },
+        { key: 5, label: 'Lainnya' },
+        { key: 6, label: 'Tidak ada' }
+        ];
 
     dirujuk = [
         { key: 0, label: 'Puskesmas' },
         { key: 1, label: 'Rumah sakit bersalin' },
         { key: 2, label: 'Rumah salit ibu anak' },
         { key: 3, label: 'Rumah sakit' },
-        { key: 4, label: 'lainnya' },
-        { key: 5, label: 'tidak dirujuk' }
+        { key: 4, label: 'Lainnya' },
+        { key: 5, label: 'Tidak dirujuk' }
+    ];
+
+    tempats = [
+        "Rumah",
+        "Poskesdes",
+        "Pustu",
+        "Puskesmas",
+        "Rumah Sakit Bersalin",
+        "Rumah Sakit Ibu Anak",
+        "Rumah Sakit",
+        "Rumah Sakit Odha",
+        "Praktek mandiri",
+        "Klinik"
     ];
 
     constructor(
@@ -69,7 +86,6 @@ export class PemeriksaanComponent implements OnInit {
             params => {
                 this.id_kehamilan = params.id_kehamilan;
                 if (params.data) {
-                    console.log(params.data);
                     this.id_pemeriksaan = params.id_pemeriksaan;
                     this.pemeriksaan = <Pemeriksaan> JSON.parse(params.data);
                     this.isedit = true;
@@ -79,7 +95,6 @@ export class PemeriksaanComponent implements OnInit {
     }
 
     save(){
-        console.log("telo "+console.log(JSON.stringify(this.pemeriksaan)),null, "\t");
         if (this.isedit){
             this.serv.update(this.id_kehamilan,this.pemeriksaan.id,this.pemeriksaan).subscribe(
                 res => {

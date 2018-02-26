@@ -32,7 +32,7 @@ export class AuthInterceptorService implements HttpInterceptor{
         return next.handle(req)
             .catch(err => {
 
-                if ((err instanceof HttpErrorResponse) && err.error.message === 'token_expired') {
+                if ((err instanceof HttpErrorResponse) && err.error.message === 'Silahkan login') {
 
                     if (this.isrefreshing){
                         console.log(`token sedang diperbarui ${this.isrefreshing}`);

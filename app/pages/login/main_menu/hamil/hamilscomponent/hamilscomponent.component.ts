@@ -9,6 +9,7 @@ import * as dialogs from "ui/dialogs"
 import {KaBeService} from "./ka-be.service";
 import * as moment from "moment"
 import {Ibuhamilservice} from "../../ibuhamilservice";
+ import {PlatformLocation} from "@angular/common";
 
 @Component({
   moduleId: module.id,
@@ -30,7 +31,8 @@ export class HamilscomponentComponent implements OnInit {
         private kbServ:KaBeService,
         private modal:ModalDialogService,
         private vcrf:ViewContainerRef,
-        private route:Router
+        private route:Router,
+        private location:PlatformLocation
     ){
 
         this.kabes = new Kabe();
@@ -52,6 +54,7 @@ export class HamilscomponentComponent implements OnInit {
     }
 
     ngOnInit(){
+        this.location.onPopState(()=>{this.loadpregs(null)})
     }
 
     loadpregs(args){
@@ -118,20 +121,19 @@ export class HamilscomponentComponent implements OnInit {
         )
     }
 
-    on_hamil_selected(id_kehamilan:number){
+    on_hamil_selected(item){
+        delete item.melahirkan;
         let navextra:NavigationExtras = {
-            queryParams: {id_kehamilan:id_kehamilan, id_orangtua:this.orangtua.id}
+            queryParams: item
         };
         this.route.navigate(["menuhamil"], navextra)
+
     }
 
     load_kabe(){
         this.kbServ.getKabe(this.orangtua.id).subscribe(
             res=>{
                 let raw = res.content;
-
-                console.log("haaaiii "+JSON.stringify(raw));
-
                 raw.mal = new Choices(raw.mal);
                 raw.kondom = new Choices(raw.kondom);
                 raw.pil = new Choices(raw.pil);

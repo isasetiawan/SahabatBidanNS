@@ -16,8 +16,8 @@
                 <TKPropertyEditor tkEntityPropertyEditor type="DatePicker"></TKPropertyEditor>
             </TKEntityProperty>
 
-            <TKEntityProperty tkDataFormProperty name="tempat_pelaksanaan" displayName="Tempat Pemeriksaan">
-                <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+            <TKEntityProperty tkDataFormProperty name="tempat_pelaksanaan" displayName="Tempat Pemeriksaan" [valuesProvider]="tempats">
+                <TKPropertyEditor tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
             </TKEntityProperty>
 
             <TKEntityProperty tkDataFormProperty name="keadaan_umum" displayName="Keadaan Umum" [valuesProvider]="keadanumum">
@@ -29,26 +29,40 @@
             </TKEntityProperty>
 
             <TKEntityProperty tkDataFormProperty name="jumlah_janin" displayName="Jumlah Janin"></TKEntityProperty>
-            <TKEntityProperty tkDataFormProperty name="suhu_tubuh" displayName="Suhu Tubuh"></TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="suhu_tubuh" displayName="Suhu Tubuh">
+                <TKPropertyEditor tkEntityPropertyEditor type="Decimal"></TKPropertyEditor>
+            </TKEntityProperty>
 
             <TKEntityProperty tkDataFormProperty name="tekanan_darah_sistol" displayName="Tekanan Darah Sistolik">
                 <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                <TKPropertyEditor tkEntityPropertyEditor type="Decimal"></TKPropertyEditor>
             </TKEntityProperty>
 
-            <TKEntityProperty tkDataFormProperty name="tekanan_darah_diastol" displayName="Tekanan Darah Diastolik">
+            <TKEntityProperty tkDataFormProperty name="tekanan_darah_diasistol" displayName="Tekanan Darah Diastolik">
                 <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                <TKPropertyEditor tkEntityPropertyEditor type="Decimal"></TKPropertyEditor>
             </TKEntityProperty>
 
-            <TKEntityProperty tkDataFormProperty name="berat_badan_sebelum_hamil" displayName="Berat Badan Sebelum Hamil"></TKEntityProperty>
-            <TKEntityProperty tkDataFormProperty name="berat_badan_sekarang" displayName="Berat Badan Sekarang"></TKEntityProperty>
-            <TKEntityProperty tkDataFormProperty name="tinggi_badan" displayName="Tinggi Badan"></TKEntityProperty>
-
-            <TKEntityProperty tkDataFormProperty name="lila" displayName="LILA">
-                <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+            <TKEntityProperty tkDataFormProperty name="berat_badan_sebelum_hamil" displayName="Berat Badan Sebelum Hamil">
+                <TKPropertyEditor tkEntityPropertyEditor type="Decimal"></TKPropertyEditor>
             </TKEntityProperty>
 
-            <TKEntityProperty tkDataFormProperty name="tfu" displayName="TFU">
+            <TKEntityProperty tkDataFormProperty name="berat_badan_sekarang" displayName="Berat Badan Sekarang">
+                <TKPropertyEditor tkEntityPropertyEditor type="Decimal"></TKPropertyEditor>
+            </TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="tinggi_badan" displayName="Tinggi Badan">
+                <TKPropertyEditor tkEntityPropertyEditor type="Decimal"></TKPropertyEditor>
+            </TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="lila" displayName="Lingkar lengan atas">
                 <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                <TKPropertyEditor tkEntityPropertyEditor type="Decimal"></TKPropertyEditor>
+            </TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="tfu" displayName="Tinggi fundur uteri">
+                <TKPropertyEditor tkEntityPropertyEditor type="Decimal"></TKPropertyEditor>
             </TKEntityProperty>
 
             <TKEntityProperty tkDataFormProperty name="refleks_patella" displayName="Refleks Patella" [valuesProvider]="pone">
@@ -95,6 +109,10 @@
                 <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
             </TKEntityProperty>
 
+            <TKEntityProperty tkDataFormProperty name="detak_jantung_janin" displayName="Detak jantung janin">
+                <TKPropertyEditor tkEntityPropertyEditor type="Decimal"></TKPropertyEditor>
+            </TKEntityProperty>
+
             <TKEntityProperty tkDataFormProperty name="protein_urin" displayName="Proteinuri" [valuesProvider]="proteinurine">
                 <TKPropertyEditor tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
             </TKEntityProperty>
@@ -107,7 +125,7 @@
                 <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
             </TKEntityProperty>
 
-            <TKEntityProperty tkDataFormProperty name="sifilis" displayName="Sifilis" [valuesProvider]="pone">
+            <TKEntityProperty tkDataFormProperty name="sifilis" displayName="Sifilis" [valuesProvider]="react">
                 <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
             </TKEntityProperty>
 
@@ -123,8 +141,9 @@
                 <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
             </TKEntityProperty>
 
-            <TKEntityProperty tkDataFormProperty name="hb" displayName="HB">
+            <TKEntityProperty tkDataFormProperty name="hb" displayName="Haemoglobin gr%">
                 <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
+                <TKPropertyEditor tkEntityPropertyEditor type="Decimal"></TKPropertyEditor>
             </TKEntityProperty>
 
             <TKEntityProperty tkDataFormProperty name="pemeriksaan_lain" displayName="Pemeriksaan Lainnya"></TKEntityProperty>
@@ -141,11 +160,11 @@
                 <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
             </TKEntityProperty>
 
-            <TKEntityProperty tkDataFormProperty name="result_test_hiv" displayName="Hasil tes HIV" [valuesProvider]="pone">
+            <TKEntityProperty tkDataFormProperty name="result_test_hiv" displayName="Hasil tes HIV" [valuesProvider]="react">
                 <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
             </TKEntityProperty>
 
-            <TKEntityProperty tkDataFormProperty name="get_art" displayName="Mendapatkan ART" [valuesProvider]="pone">
+            <TKEntityProperty tkDataFormProperty name="get_art" displayName="Mendapatkan ART (terapi antiretroviral)" [valuesProvider]="pone">
                 <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
             </TKEntityProperty>
 
@@ -153,7 +172,7 @@
                 <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
             </TKEntityProperty>
 
-            <TKEntityProperty tkDataFormProperty name="do_test_rdt" displayName="Diperiksa RDT/Mikroskopis" [valuesProvider]="pone">
+            <TKEntityProperty tkDataFormProperty name="do_test_rdt" displayName="Diperiksa RDT (Rapid Diagnostic Test) /Mikroskopis" [valuesProvider]="pone">
                 <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
             </TKEntityProperty>
 
@@ -167,11 +186,11 @@
                 <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
             </TKEntityProperty>
 
-            <TKEntityProperty tkDataFormProperty name="tbc" displayName="TBC" [valuesProvider]="pone">
+            <TKEntityProperty tkDataFormProperty name="tbc" displayName="Tuberculosis" [valuesProvider]="pone">
                 <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
             </TKEntityProperty>
 
-            <TKEntityProperty tkDataFormProperty name="obat_tbc" displayName="Obat TBC"></TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="obat_tbc" displayName="Obat Tuberculosis"></TKEntityProperty>
 
             <TKEntityProperty tkDataFormProperty name="do_test_ankylostoma" displayName="Tes Ankylostoma" [valuesProvider]="pone">
                 <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
@@ -181,15 +200,15 @@
                 <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
             </TKEntityProperty>
 
-            <TKEntityProperty tkDataFormProperty name="do_test_ims" displayName="Diperiksa IMS" [valuesProvider]="pone">
+            <TKEntityProperty tkDataFormProperty name="do_test_ims" displayName="Diperiksa IMS (Infeksi Menular Seks)" [valuesProvider]="pone">
                 <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
             </TKEntityProperty>
 
-            <TKEntityProperty tkDataFormProperty name="result_test_ims" displayName="Hasil IMS" [valuesProvider]="pone">
+            <TKEntityProperty tkDataFormProperty name="result_test_ims" displayName="Hasil IMS (Infeksi Menular Seks)" [valuesProvider]="pone">
                 <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
             </TKEntityProperty>
 
-            <TKEntityProperty tkDataFormProperty name="result_test_ankylostoma" displayName="Hasil Tes IMS" [valuesProvider]="pone">
+            <TKEntityProperty tkDataFormProperty name="result_test_ankylostoma" displayName="Hasil Tes IMS (Infeksi Menular Seks)" [valuesProvider]="pone">
                 <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
             </TKEntityProperty>
 
@@ -222,5 +241,6 @@
         </RadDataForm>
         <Button text="Kirim" (tap)="save()"></Button>
     </StackLayout>
+
 </ScrollView>
 

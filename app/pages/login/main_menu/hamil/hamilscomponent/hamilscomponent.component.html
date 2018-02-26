@@ -65,7 +65,7 @@
                 <CardView class="card-list" radius="8">
                     <GridLayout columns="auto,*,auto,auto,auto" class="wrapper" orientation="horizontal">
                         <Image col="0" class="icon" src='res://kehamilan'></Image>
-                        <StackLayout col="1" orientaion="vertical" (tap)="on_hamil_selected(item.id)" >
+                        <StackLayout col="1" orientaion="vertical" (tap)="on_hamil_selected(item)" >
                             <Label class="title" [text]="'Kehamilan ke-'+item.hamil_ke"></Label>
                             <Label class="desc" [text]="'HPHT '+item.HPHT"></Label>
                         </StackLayout>
@@ -79,7 +79,7 @@
 
         </RadListView>
 
-        <FAB:fab (tap)="addHamilModals()" class="fab-button" row="1" rippleColor="#f1f1f1" ></FAB:fab>
+        <FAB:fab icon="res://ic_add_white_24dp"  (tap)="addHamilModals()" class="fab-button" row="1" rippleColor="#f1f1f1" ></FAB:fab>
 
     </GridLayout>
 
