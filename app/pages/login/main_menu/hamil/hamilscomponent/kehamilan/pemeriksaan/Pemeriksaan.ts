@@ -10,8 +10,8 @@ export class Pemeriksaan {
     tekanan_darah_diasistol:number=0.0;
     berat_badan_sebelum_hamil:number=0.0;
     berat_badan_sekarang:number=0.0;
-    tinggi_badan:number=0.0;
-    lila:number=0.0;
+    // tinggi_badan:number=0.0;
+    // lila:number=0.0;
     tfu:number=0.0;
     refleks_patella:number=0;
     pjanin_blum_terdeteksi:number=0;

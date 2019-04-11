@@ -13,9 +13,9 @@
                             <StackLayout col="0">
                                 <Label class="title" class="title" [text]="item.detail_tumbuh"></Label>
                                 <Label class="desc" class="desc" [text]="item.result !== null ? 'Diperiksa pada '+ showDate(item.result.tanggal) : 'belum diperiksa' "></Label>
-                                <Label class="desc" class="desc" [text]="item.result?.bidan != null ? 'divalidasi oleh ' + item.result.bidan.nama: 'belum divalidasi' "></Label>
-                                <Label class="desc" class="desc" [text]="item.result !== null ? item.result.result : '' "></Label>
-                                <Label class="desc" class="desc" [text]="item.result !== null ? item.result.gizi : '' "></Label>
+                                <Label class="desc" class="desc" [text]="item.result?.bidan != null ? 'divalidasi oleh \n' + item.result.bidan.nama: 'belum divalidasi' " textWrap="true"></Label>
+                                <Label class="desc" class="desc" [text]="item.result !== null ? 'Terdiagnosis ' + item.result.gizi : '' "></Label>
+                                <Label class="desc" class="desc" [text]="item.result !== null ? item.result.saran_gizi.saran : '' " textWrap="true"></Label>                                
                             </StackLayout>
                             <Label class="wh-label" col="1" class="desc" class="desc" [text]="item.result !== null ? item.result.berat+' Kg | '+item.result.tinggi+' Cm' : '' "></Label>
                         </GridLayout>
@@ -60,7 +60,7 @@
                 <CategoricalAxis tkCartesianHorizontalAxis></CategoricalAxis>
                 <LinearAxis tkCartesianVerticalAxis></LinearAxis>
 
-                <LineSeries showLabels="true" tkCartesianSeries [items]="tbbbs" categoryProperty="tinggi" valueProperty="berat" [legendTitle]="'Berat '+anak.nama "></LineSeries>
+                <ScatterSeries  tkCartesianSeries [items]="tbbbs" yProperty="tinggi" xProperty="berat" [legendTitle]="'Berat '+anak.nama " showLabels="true"></LineSeries>
                 <LineSeries tkCartesianSeries [items]="s_tbbbs" categoryProperty="tinggi_badan" valueProperty="sangat_kurus" legendTitle="Sangat Kurus"></LineSeries>
                 <LineSeries tkCartesianSeries [items]="s_tbbbs" categoryProperty="tinggi_badan" valueProperty="kurus" legendTitle="Kurus"></LineSeries>
                 <LineSeries tkCartesianSeries [items]="s_tbbbs" categoryProperty="tinggi_badan" valueProperty="normal" legendTitle="Normal"></LineSeries>
@@ -70,6 +70,28 @@
                 <!--legend-->
                 <RadLegendView tkCartesianLegend position="Bottom" title="Keterangan" enableSelection="true" ></RadLegendView>
             </RadCartesianChart>
+        </StackLayout>
+
+        <StackLayout margin="32dp" *tabItem="{title: 'Saran Gizi' }">
+            <RadListView [items]="tbbbs" pullToRefresh="true" (pullToRefreshInitiated)="loadtumbuh($event)">
+
+                <ng-template let-i="index" tkListItemTemplate let-item="item">
+
+                    <CardView class="card-list" radius="8">
+                        <StackLayout padding="16dp">
+                            <Label class="title" class="title" [text]="'umur '+item.usia+' bulan'"></Label>
+                            <Label class="desc" class="desc" [text]="item.gizi + ' (' + item.hasil + ')' "></Label>
+                            <StackLayout *ngFor="let gi of item.saran_gizi">
+                                <Label text=""></Label>
+                                <Label [text]="gi.saran" textWrap="true" ></Label>
+                                <Label [text]="gi.keterangan" textWrap="true" ></Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </CardView>
+
+                </ng-template>
+
+            </RadListView>
         </StackLayout>
 
     </TabView>

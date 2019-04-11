@@ -52,18 +52,23 @@
                 <TKPropertyEditor tkEntityPropertyEditor type="Decimal"></TKPropertyEditor>
             </TKEntityProperty>
 
-            <TKEntityProperty tkDataFormProperty name="tinggi_badan" displayName="Tinggi Badan">
-                <TKPropertyEditor tkEntityPropertyEditor type="Decimal"></TKPropertyEditor>
-            </TKEntityProperty>
+            <!--<TKEntityProperty tkDataFormProperty name="tinggi_badan" displayName="Tinggi Badan" hidden="true">-->
+                <!--<TKPropertyEditor tkEntityPropertyEditor type="Decimal"></TKPropertyEditor>-->
+            <!--</TKEntityProperty>-->
 
-            <TKEntityProperty tkDataFormProperty name="lila" displayName="Lingkar lengan atas">
-                <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>
-                <TKPropertyEditor tkEntityPropertyEditor type="Decimal"></TKPropertyEditor>
-            </TKEntityProperty>
+            <!--<TKEntityProperty tkDataFormProperty name="lila" displayName="Lingkar lengan atas" hidden="true">-->
+                <!--<TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Tidak Boleh Kosong"></TKNonEmptyValidator>-->
+                <!--<TKPropertyEditor tkEntityPropertyEditor type="Decimal"></TKPropertyEditor>-->
+            <!--</TKEntityProperty>-->
 
             <TKEntityProperty tkDataFormProperty name="tfu" displayName="Tinggi fundur uteri">
                 <TKPropertyEditor tkEntityPropertyEditor type="Decimal"></TKPropertyEditor>
             </TKEntityProperty>
+
+            <TKEntityProperty tkDataFormProperty name="tfu_unit" displayName="Satuan tinggi fundur uteri" [valuesProvider]="tfunit">
+                <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+            </TKEntityProperty>
+
 
             <TKEntityProperty tkDataFormProperty name="refleks_patella" displayName="Refleks Patella" [valuesProvider]="pone">
                 <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
@@ -240,6 +245,7 @@
 
         </RadDataForm>
         <Button text="Kirim" (tap)="save()"></Button>
+        <Button text="Ukur Hb dengan alat" [visibility]="isedit ? 'visible' : 'collapsed' " (tap)="open_clinton()"></Button>
     </StackLayout>
 
 </ScrollView>

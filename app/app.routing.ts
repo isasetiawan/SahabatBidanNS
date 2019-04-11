@@ -25,6 +25,7 @@ import {RencanaPersalinanComponent} from "./pages/login/main_menu/hamil/hamilsco
 import {PersalinanComponent} from "./pages/login/main_menu/hamil/hamilscomponent/menuhamil/persalinan/persalinan.component";
 import {MelahirkanComponent} from "./pages/login/main_menu/hamil/hamilscomponent/menuhamil/melahirkan/melahirkan.component";
 import {NifasesComponent} from "./pages/login/main_menu/hamil/hamilscomponent/menuhamil/nifases/nifases.component";
+import {ResikokaderComponent} from "./pages/login/main_menu/hamil/hamilscomponent/menuhamil/resikokader/resikokader.component";
 
 
 const routes: Routes = [
@@ -52,8 +53,7 @@ const routes: Routes = [
     { path: "persalinan", component:PersalinanComponent},
     { path: "melahirkan", component:MelahirkanComponent},
     { path: "nifases", component:NifasesComponent},
-
-
+    { path: "resiko_kader", component:ResikokaderComponent},
 ];
 
 @NgModule({

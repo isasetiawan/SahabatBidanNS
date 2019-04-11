@@ -63,15 +63,14 @@
             <ng-template tkListItemTemplate let-item="item">
 
                 <CardView class="card-list" radius="8">
-                    <GridLayout columns="auto,*,auto,auto,auto" class="wrapper" orientation="horizontal">
+                    <GridLayout columns="auto,*,auto,auto" class="wrapper" orientation="horizontal">
                         <Image col="0" class="icon" src='res://kehamilan'></Image>
                         <StackLayout col="1" orientaion="vertical" (tap)="on_hamil_selected(item)" >
                             <Label class="title" [text]="'Kehamilan ke-'+item.hamil_ke"></Label>
                             <Label class="desc" [text]="'HPHT '+item.HPHT"></Label>
                         </StackLayout>
                         <Image col="2" class="ic_action" src="res://ic_done_black_24dp" [visibility]='item.is_dropout == 1 ? "visible" : "collapse"'></Image>
-                        <Image col="3" class="ic_action" src="res://ic_mode_edit_black_24dp" (tap)="editHamilModals(item)"></Image>
-                        <Image col="4" class="ic_action" src="res://ic_delete_black_48dp" (tap)="delete_preg(item.id)"></Image>
+                        <Image col="3" class="ic_action" src="res://ic_delete_black_48dp" (tap)="delete_preg(item.id)"></Image>
                     </GridLayout>
                 </CardView>
 

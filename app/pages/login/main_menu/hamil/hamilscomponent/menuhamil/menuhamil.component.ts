@@ -36,6 +36,8 @@ export class MenuhamilComponent implements OnInit {
                 this.kehamilan.risk_by_sistem = params.risk_by_sistem;
                 this.kehamilan.risk_by_kader = params.risk_by_kader;
                 this.kehamilan.kia = params.kia;
+                this.kehamilan.lila = params.lila;
+                this.kehamilan.tinggi_badan = params.tinggi_badan;
                 console.log(JSON.stringify(this.kehamilan))
             }
         );

@@ -4,6 +4,11 @@ import {ActivatedRoute} from "@angular/router";
 import {PemeriksaanService} from "../pemeriksaan.service";
 import * as Toast from "nativescript-toast";
 import {RouterExtensions} from "nativescript-angular";
+import * as app from "tns-core-modules/application";
+import * as platform from "tns-core-modules/platform";
+let appSettings = require("application-settings");
+let clipboard = require("nativescript-clipboard");
+
 
 @Component({
     moduleId: module.id,
@@ -19,14 +24,18 @@ export class PemeriksaanComponent implements OnInit {
     id_pemeriksaan:number;
     isedit:boolean;
 
-    keadanumum=[ { key: 0, label: 'Baik' },
+    keadanumum=[
+        { key: 0, label: 'Baik' },
         { key: 1, label: 'Lemah' },
-        { key: 2, label: 'Tampak Anemis' } ];
+        { key: 2, label: 'Tampak Anemis' }
+        ];
 
-    keadaankhusus=[ { key: 0, label: 'Tidak Ada' },
+    keadaankhusus=[
+        { key: 0, label: 'Tidak Ada' },
         { key: 1, label: 'Bengkak Muka/Tungkai' },
         { key: 2, label: 'Kembar Air' },
-        { key: 3, label: 'Kejang-kejang' } ];
+        { key: 3, label: 'Kejang-kejang' }
+         ];
 
     pone = [ { key: 0, label: '-' }, { key: 1, label: '+' } ];
 
@@ -41,6 +50,8 @@ export class PemeriksaanComponent implements OnInit {
     yatak = [ { key: 0, label: 'Tidak' }, { key: 1, label: 'Ya' } ];
 
     hima = [ { key: 0, label: 'mati' }, { key: 1, label: 'hidup' } ];
+
+    tfunit = [{key: 0, label: 'Jari'}, {key: 1, label: 'Centimeter'}];
 
     komplikasi = [
         { key: 0, label: 'HDK' },
@@ -112,6 +123,13 @@ export class PemeriksaanComponent implements OnInit {
 
             )
         }
+    }
+
+    androidApp = app.android;
+
+    public open_clinton(){
+        let token_and_id = `${appSettings.getString("token")} ${this.id_pemeriksaan}`;
+        clipboard.setText(token_and_id).then(()=>{Toast.makeText(token_and_id).show()})
     }
 
     ngOnInit() { }

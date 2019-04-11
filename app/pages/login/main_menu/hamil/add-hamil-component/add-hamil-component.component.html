@@ -3,13 +3,28 @@
     <!-- <Label textWrap="true" marginBottom="16dp" text="Serahkan Hanphone kepada ibu ybs. dan mintalah untuk memasukkan kata sandi dan password"></Label> -->
 
     <RadDataForm [source]="args">
-        
+
+        <TKEntityProperty tkDataFormProperty name="id" hidden="true"></TKEntityProperty>
+        <TKEntityProperty tkDataFormProperty name="orangtua_id" hidden="true"></TKEntityProperty>
+        <TKEntityProperty tkDataFormProperty name="risk_by_sistem" hidden="true"></TKEntityProperty>
+        <TKEntityProperty tkDataFormProperty name="risk_by_kader" hidden="true"></TKEntityProperty>
+        <TKEntityProperty tkDataFormProperty name="kia" hidden="true"></TKEntityProperty>
+        <TKEntityProperty tkDataFormProperty name="is_dropout" hidden="true"></TKEntityProperty>
+
         <TKEntityProperty tkDataFormProperty name="HPHT" displayName="Hari Pertama Haid Terahir">
             <TKPropertyEditor tkEntityPropertyEditor type="DatePicker"></TKPropertyEditor>
         </TKEntityProperty>
-        
-        <TKEntityProperty tkDataFormProperty name="is_dropout" displayName="Dropout" index="0" [valuesProvider]="dropoutChoice">
-            <TKPropertyEditor tkEntityPropertyEditor type="SegmentedEditor"></TKPropertyEditor>
+
+        <TKEntityProperty tkDataFormProperty name="hamil_ke" displayName="Hamil Ke-">
+            <TKPropertyEditor tkEntityPropertyEditor type="Stepper"></TKPropertyEditor>
+        </TKEntityProperty>
+
+        <TKEntityProperty tkDataFormProperty name="lila" displayName="Lingkar lengan atas">
+            <TKPropertyEditor tkEntityPropertyEditor type="Decimal"></TKPropertyEditor>
+        </TKEntityProperty>
+
+        <TKEntityProperty tkDataFormProperty name="tinggi_badan" displayName="Tinggi badan">
+            <TKPropertyEditor tkEntityPropertyEditor type="Decimal"></TKPropertyEditor>
         </TKEntityProperty>
 
     </RadDataForm>

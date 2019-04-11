@@ -81,31 +81,6 @@ export class HamilscomponentComponent implements OnInit {
         )
     }
 
-    editHamilModals(kehamilan:any){
-
-        let k = {
-            HPHT:kehamilan.HPHT,
-            hamil_ke:kehamilan.hamil_ke,
-            is_dropout:kehamilan.is_dropout
-        };
-
-        let options = {
-            fullscreen:false,
-            viewContainerRef: this.vcrf,
-            context: {
-                data:k,
-                kehamilan_id:kehamilan.id,
-                orangtua_id:this.orangtua.id
-            }
-        };
-
-        this.modal.showModal(AddHamilComponentComponent,options).then(
-            res => {
-                this.loadpregs(null)
-            }
-        )
-    }
-
     delete_preg(id:number){
         dialogs.confirm("Apakah anda yakin ingin menghapus kehamilan?").then(
             result => {

@@ -1,0 +1,34 @@
+<Page>
+    <ActionBar title="Resiko Kehamilan berdasarkan kader"></ActionBar>
+</Page>
+
+<ScrollView>
+    <StackLayout margin="8dp">
+
+        <Label class="dropdown-label" text="Pendetksi"></Label>
+        <DropDown
+                [items]="resiko.pendeteksi_choice"
+                style="font-size: 16pt"
+                class="dropdown"
+                [selectedIndex] = "resiko.pendeteksi"
+                (selectedIndexChanged)="resiko.pendeteksi = $event.newIndex"
+        ></DropDown>
+
+        <CheckBox text="Terlalu muda hamil umur <16th" [(ngModel)]="resiko.muda_hamil"></CheckBox>
+        <CheckBox text="Terlalu lambat hamil 1 kawin > 16th" [(ngModel)]="resiko.lambat_hamil"></CheckBox>
+        <CheckBox text="Terlalu tua hamil 1 > 35th " [(ngModel)]="resiko.tua_hamil"></CheckBox>
+        <CheckBox text="Terlalu cepat hamil lagi < 2th" [(ngModel)]="resiko.cepat_hamil"></CheckBox>
+        <CheckBox text="Terlalu lama hamil lagi > 10th" [(ngModel)]="resiko.lama_hamil"></CheckBox>
+        <CheckBox text="Terlalu banyak anak, lebih dari 4)" [(ngModel)]="resiko.banyak_anak"></CheckBox>
+        <CheckBox text="Terlalu tua umur > 35th" [(ngModel)]="resiko.umur_tua"></CheckBox>
+        <CheckBox text="Terlalu pendek < 145cm" [(ngModel)]="resiko.pendek"></CheckBox>
+        <CheckBox text="Pernah gagal hamil" [(ngModel)]="resiko.gagal_hamil"></CheckBox>
+        <CheckBox text="Pernah melahirkan tarikan tang/vakum" [(ngModel)]="resiko.vakum"></CheckBox>
+        <CheckBox text="Pernah uri digoroh" [(ngModel)]="resiko.uri_dirogoh"></CheckBox>
+        <CheckBox text="Pernah diberi infus/Tranfusi" [(ngModel)]="resiko.infus"></CheckBox>
+
+        <Button (tap)="save()" text="simpan"></Button>
+        
+
+    </StackLayout>
+</ScrollView>

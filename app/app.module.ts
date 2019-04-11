@@ -50,6 +50,7 @@ import {PersalinanComponent} from "./pages/login/main_menu/hamil/hamilscomponent
 import {MelahirkanComponent} from "./pages/login/main_menu/hamil/hamilscomponent/menuhamil/melahirkan/melahirkan.component";
 import {NifasesComponent} from "./pages/login/main_menu/hamil/hamilscomponent/menuhamil/nifases/nifases.component";
 import {BidanService} from "./pages/login/bidan.service";
+import {ResikokaderComponent} from "./pages/login/main_menu/hamil/hamilscomponent/menuhamil/resikokader/resikokader.component";
 
 @NgModule({
     bootstrap: [
@@ -100,6 +101,7 @@ import {BidanService} from "./pages/login/bidan.service";
         PersalinanComponent,
         MelahirkanComponent,
         NifasesComponent,
+        ResikokaderComponent,
     ],
     providers: [
         BidanService,

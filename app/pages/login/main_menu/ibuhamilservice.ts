@@ -57,7 +57,7 @@ export class Ibuhamilservice {
     addPregnancies(idorangtua:number, args:any){
         this.loadingindicator.show(Config.progress_dialog_options);
         return this.http.post(
-            Config.urlAPI+'/hamil/'+idorangtua+'/add',
+            `${Config.urlAPI}/hamil/${idorangtua}/add`,
             args,
             {headers:Config.createHeaders()}
         )

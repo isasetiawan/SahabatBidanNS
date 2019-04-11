@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ModalDialogParams} from "nativescript-angular";
 import * as Toast from "nativescript-toast";
 import {Ibuhamilservice} from "../../ibuhamilservice";
+import {Kehamilan} from "../hamilscomponent/menuhamil/Kehamilan";
 
 @Component({
   moduleId: module.id,
@@ -12,9 +13,7 @@ import {Ibuhamilservice} from "../../ibuhamilservice";
 })
 export class AddHamilComponentComponent implements OnInit {
 
-    args:Hamil;
-    isedit:boolean;
-    id_hamil:number;
+    args:Kehamilan;
     id_orangtua:number;
     err_message:string;
 
@@ -27,50 +26,27 @@ export class AddHamilComponentComponent implements OnInit {
         private params:ModalDialogParams,
         private serv:Ibuhamilservice
     ) {
-        this.isedit = false;
-        this.err_message = "";
-        this.args = new Hamil();
-        let d = new Date();
-        let m = d.getUTCMonth() + 1;
-        this.args.HPHT = d.getUTCFullYear()+"-"+m+"-"+d.getUTCDate();
-        this.args.hamil_ke = 0;
-        this.args.is_dropout = 0;
+        this.args = new Kehamilan();
         this.id_orangtua = this.params.context.orangtua_id;
 
-        if (this.params.context.data){
-            this.isedit = true;
-            this.args = this.params.context.data;
-            this.id_hamil = this.params.context.kehamilan_id;
-        }
-
-        console.log(this.id_orangtua+" "+this.id_hamil);
+        //testing
+        // this.args.hamil_ke = 3;
+        // this.args.HPHT = "2018-04-02"
+        // this.args.lila = 12.4;
+        // this.args.tinggi_badan = 123.41;
     }
 
     ngOnInit(){}
 
     submit(){
         console.log(JSON.stringify(this.args));
-        if (this.isedit) {
-            this.serv.editPregnancies(this.id_orangtua,this.id_hamil,this.args).subscribe(
-                res=>{
-                    Toast.makeText(res.message).show();
-                    this.params.closeCallback()
-                }
-            )
-        } else {
-            this.serv.addPregnancies(this.id_orangtua, this.args).subscribe(
-                res=>{
-                    Toast.makeText(res.message).show();
-                    this.params.closeCallback()
-                }
-            )
-        }
+        // console.log(`idnya adalah ${this.id_orangtua}`)
+        this.serv.addPregnancies(this.id_orangtua, this.args).subscribe(
+            res=>{
+                Toast.makeText(res.message).show();
+                this.params.closeCallback()
+            }
+        )
     }
 
-}
-
-class Hamil {
-    hamil_ke:number;
-    HPHT:string;
-    is_dropout:number;
 }
